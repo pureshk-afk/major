@@ -1,0 +1,39 @@
+{% extends "web/base.html" %}
+
+{% load static %}
+
+{% block welcome %}
+    <div class="welcome" style="background-image: url('{% static 'web/images/welcome.svg' %}');">
+        {% block header %}
+        <header class="header">
+            <div class="header__content">
+                <div class="header__content-logo">
+                    <img src="{% static 'web/images/logo3.svg' %}">
+                </div>
+                <div class="header__content-menu">
+                    <ul>
+                        {% for m in menu %}
+                            <li><a href="#" class="standart-text">{{m}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </header>
+        {% endblock header %}
+        <div class="welcome__content">
+            <div class="welcome__content-name">
+                <p class="big-text">Дизайнерские предметы интерьера на заказ</p>
+                <p class="standart-text">От вашей мечты до готового интерьера: создаем единственные в своем роде вещи, которые идеально вписываются в ваше пространство и жизнь.</p>
+            </div>
+            <button class="white-btn">Заказать индивидуальный проект</button>
+        </div>
+    </div>
+{% endblock welcome %}
+
+
+
+
+
+
+
+

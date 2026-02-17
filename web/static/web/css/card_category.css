@@ -1,0 +1,90 @@
+.main_conteiner_cards {
+  display: -ms-grid;
+  display: grid;
+  width: 100%;
+}
+
+.conteiner_cards {
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+  background-color: aqua;
+  height: 281px;
+}
+.card-image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-repeat: no-repeat;
+  height: 245px;
+  border-radius: 10px;
+  width: 100%;
+}
+.card-image .white-btn {
+  opacity: 0;
+  visibility: hidden;
+  width: 217px;
+  height: 41px;
+  background-color: rgba(255, 255, 255, 0);
+  color: rgb(255, 255, 255);
+  border: 1px solid white;
+  -webkit-transition: opacity 0.4s ease;
+  transition: opacity 0.4s ease;
+}
+.card-image .white-btn:hover {
+  background-color: white;
+  color: black;
+  -webkit-transition: opacity 0.4s ease;
+  transition: opacity 0.4s ease;
+}
+.card-image:hover .white-btn {
+  opacity: 1;
+  visibility: visible;
+}
+.card__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 20px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: aquamarine;
+  padding-left: 38px;
+  padding-right: 38px;
+}
+.card__info p {
+  color: black;
+  font-weight: 700;
+}

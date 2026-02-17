@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+.title-footer {
+  font-family: "Arsenal SC", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  letter-spacing: 3%;
+  text-transform: none;
+  list-style-type: none;
+  color: rgb(0, 0, 0);
+}
+.title-footer a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+.link-footer {
+  font-family: "Arsenal SC", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  letter-spacing: 3%;
+  text-transform: none;
+  list-style-type: none;
+  color: rgb(0, 0, 0);
+}
+.link-footer a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+.small-text {
+  font-family: "Arsenal SC", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  letter-spacing: 3%;
+  text-transform: uppercase;
+  list-style-type: none;
+  color: rgb(90, 90, 90);
+  max-width: 261px;
+}
+
+ul {
+  padding: 0;
+}
+
+footer {
+  background-color: rgb(219, 219, 219);
+  padding: 40px 89px 40px;
+}
+footer__container {
+  width: 100%;
+  background-color: bisque;
+}
+footer .footer__container-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  background-color: rgb(16, 234, 234);
+  padding-bottom: 10px;
+}
+footer nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 80px;
+}
+footer .nav-contact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 17px;
+}
+footer .nav-contact .title-footer {
+  font-size: 24px;
+}
+footer .contacts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2px;
+}
+footer hr {
+  color: rgb(173, 173, 173);
+}
+
+.footer__container-social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  background-color: bisque;
+  padding-top: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.footer__container-social-li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 20px;
+}
+.footer__container-social .logo {
+  max-width: 111px;
+}
+
+@media (max-width: 1291px) {
+  .footer__container-nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 50px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+@media (max-width: 585px) {
+  .footer__container-social {
+    gap: 40px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}

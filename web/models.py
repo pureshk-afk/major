@@ -56,6 +56,7 @@ class Project(models.Model):
     slug = models.CharField(max_length=100, unique=True)
     description = models.TextField(blank=True, max_length=512)
     main_image = models.ImageField(upload_to='products/main/')
+    video = models.CharField(max_length=512, default=None)
 
     def save(self,  *args, **kwargs):
         if not self.slug:

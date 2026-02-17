@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="{% static 'web/css/stylesCommon.css' %}">
+    <link rel="shortcut icon" href="{% static 'web/images/logo3.svg' %}" type="image/x-icon">
+    <title>{{title}}</title>
+</head>
+<body>
+   
+    {% include "components/headerCommon.html" %}
+
+    {% block content %}
+    
+    {% endblock content %} 
+    
+    {% include "components/footer.html" %}
+    
+</body>
+</html>
