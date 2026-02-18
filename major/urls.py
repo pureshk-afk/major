@@ -21,6 +21,9 @@ from django.conf.urls.static import static
 
 from web.views import index
 from web.views import collections
+from web.views import catalog
+from web.views import info_user
+
 
 
 
@@ -29,7 +32,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("web.urls", namespace='web')),
     path('collections/', include("web.urls", namespace='web')),
-
+    path('catalog/', include("web.urls", namespace='web')),
+    path('catalog/', include("web.urls", namespace='web')),
+    path('info/', include("web.urls", namespace='web')),
     
 
 ]

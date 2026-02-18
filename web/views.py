@@ -12,4 +12,14 @@ def index(request):
 
 
 def collections(request):
-    return render(request, 'web/collections.html', {'title': 'Коллекции'})
+    collections = Collection.objects.all()
+    return render(request, 'web/collections.html', {'collections': collections,'title': 'Коллекции'})
+
+def catalog(request):
+    categories = Category.objects.all()
+    collections = Collection.objects.all()
+    products = Product.objects.all()
+    return render(request, 'web/catalog.html', {'products': products,'collections': collections, 'categories': categories,'title': 'Каталог дизайнерской мебели major'})
+
+def info_user(request):
+    return render(request, 'web/info.html', {'title': 'Пользователям'})

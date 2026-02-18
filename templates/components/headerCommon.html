@@ -5,9 +5,9 @@
         <img src="{% static 'web/images/logo3.svg' %}">
         <div class="header__content-menu">
             <ul>
-                <li><a href="#" class="standart-text">Каталог</a></li>
-                <li><a href="#" class="standart-text">Пользователям</a></li>
-                <li><a href="#" class="standart-text">Коллекции</a></li>
+                <li><a href="{% url 'web:catalog' %}" class="standart-text">Каталог</a></li>
+                <li><a href="{% url 'web:info_user' %}" class="standart-text">Пользователям</a></li>
+                <li><a href="{% url 'web:collections' %}" class="standart-text">Коллекции</a></li>
                 <li><a href="#" class="standart-text">Дизайнерам</a></li>
                 <li><a href="#" class="standart-text">Портфолио</a></li>
                 <div class="tel"> 

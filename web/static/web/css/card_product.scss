@@ -1,0 +1,80 @@
+
+.cards_container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: aqua;
+    gap: 27px;
+}
+.card{
+    display: flex;
+    background-color: rgb(140, 219, 193);
+    height: 345px;
+    width: 263px;
+    flex-direction: column;
+
+    
+}
+
+.product_img{
+    height: 212px;
+    background-color: rgb(174, 139, 209);
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+}
+
+
+.card_content{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 9px 17px
+    
+}
+.card_content-info{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.card_content-act{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+}
+.btn{
+     background: white;
+    color: black;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+    
+    
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 50%;
+    
+    font-family: "Arsenal SC", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 14px;
+    letter-spacing: 3%;
+    text-transform: uppercase;
+    color: rgb(0, 0, 0);
+}
+
+.btn:hover {
+    
+    background-color: black;
+    color: white;
+}
+
+.btn:active {
+    transform: translateY(0);
+}

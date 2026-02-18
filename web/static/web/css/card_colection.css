@@ -1,0 +1,86 @@
+@charset "UTF-8";
+.cards_collection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 25px;
+  padding-left: 100px;
+  padding-right: 100px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-top: 67px;
+}
+
+.card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: aquamarine;
+  height: 266px;
+  padding-left: 48px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.card .card__glass {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 45%;
+  height: 163px;
+  gap: 56px;
+  padding: 16px 31px;
+  /* 1. Полупрозрачный фон */
+  background: rgba(255, 255, 255, 0.2);
+  /* 2. Размытие того, что за элементом */
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px); /* Для поддержки Safari */
+  /* 3. Границы и скругление */
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  /* 4. Тень для эффекта парения */
+  -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+.card .card__glass .card__glass-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 13px;
+}
+.card .card__glass .card__glass-text .standart-text {
+  text-transform: none;
+  color: white;
+}
+.card .card__glass .card__glass-text .big-text {
+  color: white;
+}
+.card .card__glass .card__glass-arrow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+@media (max-width: 654px) {
+  .card__glass {
+    gap: 15px;
+  }
+}

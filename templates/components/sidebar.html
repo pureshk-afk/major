@@ -1,0 +1,57 @@
+{% load static %}
+<link type="text/css" rel="stylesheet" href="{% static 'web/css/sidebar.css' %}">
+
+
+
+<div class="filter-card">
+    <!-- Price Filter -->
+    <div class="dropdown" id="price-dropdown">
+        <div class="dropdown-header">
+            <span class="standart-text">Цена</span>
+            <img class="chevron" src="{% static 'web/images/arrow-bottom.svg' %}">
+        </div>
+        <div class="dropdown-content">
+            <div class="price-inputs">
+                <div class="input-group">
+                    <label class="input-label">От</label>
+                    <input type="number" class="text-input" id="min-price" placeholder="0">
+                </div>
+                <div class="input-group">
+                    <label class="input-label">До</label>
+                    <input type="number" class="text-input" id="max-price" placeholder="10000">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Collection Filter -->
+    <div class="dropdown" id="collection-dropdown">
+        <div class="dropdown-header">
+            <span class="standart-text">Коллекция</span>
+            <img class="chevron" src="{% static 'web/images/arrow-bottom.svg' %}">
+        </div>
+        <div class="dropdown-content">
+            <div class="collection-list">
+                {% for c in collections%}
+                    <label class="checkbox-label">
+                        <input type="checkbox" value="summer">
+                        <div class="custom-checkbox">
+                            <svg class="check-icon" viewBox="0 0 24 24">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        {{c.name}}
+                    </label>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Apply Button -->
+    <button class="apply-btn" id="apply-btn">Применить</button>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="{% static 'web/js/SideBarFilter.js' %}"></script>

@@ -1,0 +1,20 @@
+{% load static %}
+<link type="text/css" rel="stylesheet" href="{% static 'web/css/menu-sort.css' %}">
+
+<div class="sort-container">
+        <span class="standart-text">Сортировка</span>
+        
+        <div class="sort-select-wrapper">
+            <select class="sort-select" id="sortSelect">
+                <option class="standart-text" value="default">По умолчанию</option>
+                <option class="standart-text" value="price_asc">По возрастанию цены</option>
+                <option class="standart-text" value="price_desc">По убыванию цены</option>
+                
+            </select>
+            
+            <!-- SVG Icon for the arrow -->
+            <img class="arrow-icon" src="{% static 'web/images/arrow-bottom.svg' %}">
+        </div>
+</div>
+
+<script src="{% static 'web/js/sortMenu.js' %}"></script>

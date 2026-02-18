@@ -1,0 +1,66 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    padding-left: 100px;
+    padding-top: 70px;
+    gap: 27px;
+    
+}
+
+.container__payment-and-delivery{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 60%;
+    gap: 16px;
+    
+
+    .big-text{
+        font-size: 32px;
+    }
+
+    .standart-text{
+        text-transform: none;
+    }
+
+}
+
+.container__info{
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid rgb(133, 133, 133);
+    height: 245px;
+    padding-left: 53px;
+    gap: 30px;
+
+    .big-text{
+        font-size: 20px;
+    }
+
+    .container__info-text{
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .container__info-data{
+
+        display: flex;
+        flex-direction: column;
+        a{
+            font-family: "Arsenal SC", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 16px;
+            letter-spacing: 3%;
+            text-transform: none;
+            list-style-type: none;
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+        }
+        
+    }
+    
+
+}
