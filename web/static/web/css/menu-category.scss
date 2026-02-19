@@ -7,7 +7,6 @@
     padding-left: 100px;
     flex-wrap: wrap;
 
-    
     &__item{
         width: fit-content;
         border: 1px solid black;
@@ -16,13 +15,35 @@
         cursor: pointer;
     }
 
+    &__item a.active {
+        color: rgb(0, 0, 0);
+        font-weight: 700;
+        position: relative;
+        user-select: none;
+    }
+
+    &__item a {
+        text-decoration: none;
+    }
+
     &__item:hover{
         background-color: black;
 
-        p{
+        a {
             color: white;
         }
     }
-
 }
+
+.no-products {
+    text-align: center;
+    padding: 50px;
+    width: 100%;
+}
+
+.no-products p {
+    font-size: 18px;
+    color: #666;
+}
+
 

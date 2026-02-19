@@ -4,7 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.conf import settings
 
-from .views import collections, index, catalog, info_user
+from .views import collections, index, catalog, info_user, product_details
 
 
 app_name = 'major'
@@ -14,6 +14,7 @@ urlpatterns = [
     path('collections/', collections, name='collections'),
     path('catalog/', catalog, name='catalog'),
     path('info/', info_user, name='info_user'),
+    path('product/<slug:slug>', product_details, name="product_details")
 
     
 

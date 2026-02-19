@@ -22,9 +22,32 @@
   padding: 11px 11px;
   cursor: pointer;
 }
+.menu__item a.active {
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.menu__item a {
+  text-decoration: none;
+}
 .menu__item:hover {
   background-color: black;
 }
-.menu__item:hover p {
+.menu__item:hover a {
   color: white;
+}
+
+.no-products {
+  text-align: center;
+  padding: 50px;
+  width: 100%;
+}
+
+.no-products p {
+  font-size: 18px;
+  color: #666;
 }

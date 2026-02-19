@@ -9,26 +9,26 @@
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  background-color: aqua;
   gap: 27px;
+  padding-top: 70px;
 }
 
 .card {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: rgb(140, 219, 193);
+  cursor: pointer;
   height: 345px;
   width: 263px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  background-color: rgb(237, 237, 237);
 }
 
 .product_img {
   height: 212px;
-  background-color: rgb(174, 139, 209);
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -75,16 +75,28 @@
   height: 40px;
 }
 
-.btn {
+.box-btn {
   background: white;
   color: black;
   border: 1px solid black;
   padding: 10px;
   border-radius: 10px;
   cursor: pointer;
+  text-align: center;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
-  width: 50%;
+  width: 60%;
+}
+
+.btn {
+  background: white;
+  color: black;
+  border: 1px solid black;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
   font-family: "Arsenal SC", sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -102,4 +114,14 @@
 .btn:active {
   -webkit-transform: translateY(0);
           transform: translateY(0);
+}
+
+.arrow {
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.card:hover .arrow {
+  -webkit-transform: translateX(5px);
+          transform: translateX(5px);
 }
