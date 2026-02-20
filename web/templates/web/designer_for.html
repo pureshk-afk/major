@@ -1,0 +1,27 @@
+{% extends "web/base_all.html" %}
+{% load static %}
+<link type="text/css" rel="stylesheet" href="{% static 'web/css/designer_for.css' %}">
+
+{% block path %}
+             
+{% endblock path %}
+{% block content %}
+    <div class="welcome">
+        
+        <div class="welcome-text">
+            
+            
+            <div class="text_path">
+                <p class="standart-text">Главная / {{title}}</p>
+            </div>   
+            <h1 class="big-text">Приглашаем дизайнеров к сотрудничеству</h1>            
+            
+        </div>
+        <div class="welcome-img" style="background-image: url({% static 'web/images/welcome2.jpg' %});">
+
+        </div>
+    
+    </div>
+
+    
+{% endblock content %}

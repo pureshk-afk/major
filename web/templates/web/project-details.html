@@ -1,0 +1,22 @@
+{% extends "web/base_all.html" %}
+{% load static %}
+
+{% block path %}
+    <div class="text_path">
+        <p class="standart-text">Главная / {{the_project.name}}</p>
+        <p class="big-text">{{the_project.name}}</p>
+    </div>              
+{% endblock path %}
+{% block content %}
+   <link type="text/css" rel="stylesheet" href="{% static 'web/css/project_details.css' %}">
+    <div class="container">
+        <div class="container__img" >
+            <img src="{{the_project.main_image.url}}">
+        </div>
+        <div class="container__text">
+            <p class="big-text">От идеи до реализации</p>
+            <p class="standart-text">{{the_project.description}}</p>
+        </div>
+    </div>
+    {% include "components/gallery_project.html" %}
+{% endblock content %}

@@ -24,6 +24,8 @@ from web.views import collections
 from web.views import catalog
 from web.views import info_user
 from web.views import product_details
+from web.views import designer_for
+from web.views import portfolio
 
 
 
@@ -36,6 +38,9 @@ urlpatterns = [
     path('catalog/', include("web.urls", namespace='web')),
     path('catalog/', include("web.urls", namespace='web')),
     path('info/', include("web.urls", namespace='web')),
+    path('designer_for/', include("web.urls", namespace='web')),
+    path('portfolio/', include("web.urls", namespace='web')),
+    path('project/<slug:slug>', include("web.urls", namespace='web')),
     path('product/<slug:slug>', include("web.urls", namespace='web')),
 
     
