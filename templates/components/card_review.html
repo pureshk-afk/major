@@ -1,40 +1,25 @@
 {% load static %}
+
 <link type="text/css" rel="stylesheet" href="{% static 'web/css/card_review.css' %}">
 
+
+
 {% block cardReview %}
-<div class="main_container">
-    <h1 class="big-text">Отзывы</h1>
-
-    <div class="review-slider__container">
-        <div id="review-slider" class="review-slider">
-            <div class="swiper-wrapper flex flex-row">
-                {% for r in reviews %}
-                    <div class="review-slider__item flex swiper-slide">
-                        <div class="content">
-                            <div><p class="standart-text">{{r.description}}</p></div>
-                            <div><p class="standart-text-n">— {{r.name}}</p></div>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+<div class="feedback">
+    <h2>Отзывы</h2>
+    <div id="feedback-slider">
+      <div class="swiper-wrapper feedback__wrapper">
+        {% for r in reviews %}
+        <div class="feedback__item swiper-slide">
+          <p>{{ reviews.description }}</p>
+          <p>{{ reviews.name }}</p>
         </div>
+        {% endfor %}
+      </div>
     </div>
-    
-    {% comment %} <div class="section-offset">
-        <div class="review-slider__container">
-            <div id="review-slider">
-                <div class="swiper-wrapper flex flex-row">
-                {% for brand in brands %}
-                    <div class="review-slider__item flex swiper-slide">
-                        <
-                    </div>
-                {% endfor %}
-                </div>
-            </div>
-        </div>
-    </div> {% endcomment %}
+  </div>
 
-</div>
 {% endblock cardReview %}
 
 <script type="module" src="{% static 'web/js/reviewSlider.js' %}"></script>

@@ -11,10 +11,15 @@
                 <div class="header__content-logo">
                     <a href="{% url 'web:home' %}"><img src="{% static 'web/images/logo.svg' %}"></a>
                 </div>
+                <button class="burger-btn" id="burgerBtn" aria-label="Открыть меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
                 <div class="header__content-menu">
                     <ul>
                         <li><a href="{% url 'web:catalog' %}" class="standart-text">Каталог</a></li>
-                        <li><a href="{% url 'web:info_user' %}" class="standart-text">Пользователям</a></li>
+                        <li><a href="{% url 'web:info_user' %}" class="standart-text">Покупателям</a></li>
                         <li><a href="{% url 'web:collections' %}" class="standart-text">Коллекции</a></li>
                         <li><a href="{% url 'web:designer_for' %}" class="standart-text">Дизайнерам</a></li>
                         <li><a href="{% url 'web:portfolio' %}" class="standart-text">Портфолио</a></li>
@@ -26,6 +31,62 @@
                 </div>
             </div>
         </header>
+
+        <!-- Drawer Overlay -->
+<div class="header__overlay" id="drawerOverlay"></div>
+
+<!-- Slide-out Drawer -->
+<nav class="header__drawer" id="headerDrawer">
+    <!-- Top bar -->
+    <div class="drawer__top-bar">
+        <button class="drawer__close-btn" id="drawerCloseBtn" aria-label="Закрыть меню">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <span class="drawer__brand">MAJOR</span>
+        
+    </div>
+
+    <!-- City selector -->
+    
+
+    <!-- Navigation links -->
+    <div class="drawer__nav">
+        <a href="{% url 'web:catalog' %}" class="drawer__nav-item">
+            Каталог
+        </a>
+        <a href="{% url 'web:collections' %}" class="drawer__nav-item">Коллекции</a>
+        <a href="{% url 'web:designer_for' %}" class="drawer__nav-item">Дизайнерам</a>
+        <a href="{% url 'web:portfolio' %}" class="drawer__nav-item">Портфолио</a>
+        <a href="{% url 'web:info_user' %}" class="drawer__nav-item">Покупателям</a>
+
+        
+    </div>
+
+    <!-- Login -->
+    <a href="#" class="drawer__modal">
+        оформить заказ
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+    </a>
+
+    <!-- Bottom contact info -->
+    <div class="drawer__bottom">
+        <div class="drawer__help-label">Нужна помощь?</div>
+        <a href="https://t.me/" class="drawer__telegram-link" target="_blank" rel="noopener">Задать вопрос в Telegram</a>
+        <div class="drawer__support-info">
+            пн-вс | 10:00 - 21:00<br>
+            
+        </div>
+        <a href="tel:88007700785" class="drawer__phone">8 (918) 525-00-01</a>
+    </div>
+</nav>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="{% static 'web/js/burgerMenu.js' %}"></script>
         {% endblock header %}
         <div class="welcome__content">
             <div class="welcome__content-name">
@@ -36,8 +97,60 @@
         </div>
     </div>
 {% endblock welcome %}
+{% block cardReview %}
+{% endblock cardReview %}
+
+{% block advantages %}
+        <div class="container">
+        <div class="features">
+            <!-- Section 1 -->
+            <div class="feature-item">
+                <div class="feature-text">
+                    <h2 class="big-text">Высокое качество изделий</h2>
+                    <p class="standart-text">
+                        Качество выполненных предметов интерьера залог не только высококлассного оборудования, но и работы целой команды мастеров своего дела. Качество выполненных предметов интерьера залог не только высококлассного оборудования, но и работы целой команды мастеров своего дела.
+                    </p>
+                </div>
+                <div class="feature-images">
+                    <img class="img-main" src="{% static 'web/images/work1.png' %}">
+                    <img class="img-secondary" src="{% static 'web/images/work2.png' %}">
+                </div>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="feature-item reverse">
+                <div class="feature-text">
+                    <h2 class="big-text">Индивидуальный подход</h2>
+                    <p class="standart-text">
+                        Мы стремимся дарить нашим клиентам положительные эмоции благодаря нашей продукции, поэтому всегда прислушиваемся к желаниям каждого.
+                    </p>
+                </div>
+                <div class="feature-images">
+                    <img class="img-main" src="{% static 'web/images/lampa.png' %}">
+                    <img class="img-secondary" src="{% static 'web/images/lampa.png' %}">
+                </div>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="feature-item">
+                <div class="feature-text">
+                    <h2 class="big-text">Эксклюзивность</h2>
+                    <p class="standart-text">
+                        Мы стремимся дарить нашим клиентам положительные эмоции благодаря нашей продукции, поэтому всегда прислушиваемся к желаниям каждого.
+                    </p>
+                </div>
+                <div class="feature-images">
+                    <img class="img-main" src="{% static 'web/images/lampa.png' %}">
+                    <img class="img-secondary" src="{% static 'web/images/lampa.png' %}">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock advantages %}
 
 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="{% static 'web/js/burgerMenu.js' %}"></script>
 
 
 
