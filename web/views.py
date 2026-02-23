@@ -4,11 +4,11 @@ from django.shortcuts import get_object_or_404, render, redirect
 import web
 from .models import *
 
-menu = ['Каталог', 'Пользователям', 'Коллекции', 'Дизайнерам', 'Портфолио', '8 (918) 525-00-01']
+
 def index(request):
     categories = Category.objects.all()
     reviews = Review.objects.all()
-    return render(request, 'web/index.html', {'categories': categories, 'reviews': reviews, 'menu': menu ,'title': 'Главная страница'})
+    return render(request, 'web/index.html', {'categories': categories, 'reviews': reviews,'title': 'Главная страница'})
 
 
 def collections(request):

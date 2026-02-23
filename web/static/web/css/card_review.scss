@@ -1,65 +1,35 @@
-.standart-text{  
-    font-size: 16px;
-    color: black;
-    text-transform: none;
-}
-
-.standart-text-n{
-    font-family: "Arsenal SC", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 24px;
-    letter-spacing: 3%;
-    text-transform: uppercase;
-    color: rgb(0, 0, 0);
-}
-
-.main_container{
-    display: flex;
-    gap: 40px;
-    flex-direction: column;
-    background-color: rgb(226, 208, 183);
+.feedback{
     width: 100%;
 
-    h1{
-        color: black;
+    h2{
+        margin-bottom: 42px;
+        margin-top: 130px;
         padding-left: 100px;
+
+
     }
     
-}
-
-.review-slider__container{
-    display: flex;
-    width: 100%;
-    background-color: antiquewhite;
 
     
 
-    .review-slider__item {
+    .feedback__item{
         display: flex;
-        height: 226px;
-        width: 442px;
-        box-shadow: 0px 11px 28px -1 rgba(0, 0, 0, 0.311);
-        background-color: white;
+        flex-direction: column;
+        gap: 40px;
+        max-width: 442px;
+        max-height: 226px;
         border-radius: 10px;
+        padding: 45px 24px;
+        box-shadow: 10px 10px 30px rgba(18, 18, 18, 0.183);
         
-        .content{
-            padding-top: 45px;
-            padding-bottom: 45px;
-            padding-left: 23px;
-            padding-right: 23px;
-            display: flex;
-            width: 100%;
-            justify-content: space-between;
-            flex-direction: column;
+
+        .big-text{
+            font-size: 24px;
+            margin: 0;
+
+
             
         }
     }
-
-    .swiper-wrapper{
-        display: flex;
-        width: 100%;
-        flex-direction: row;
-        gap: 44px;
-    }
 }
+

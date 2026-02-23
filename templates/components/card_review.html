@@ -4,22 +4,24 @@
 
 
 
-{% block cardReview %}
+
 <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
 <div class="feedback">
-    <h2>Отзывы</h2>
+    <h2 class="big-text">Отзывы</h2>
     <div id="feedback-slider">
       <div class="swiper-wrapper feedback__wrapper">
         {% for r in reviews %}
-        <div class="feedback__item swiper-slide">
-          <p>{{ reviews.description }}</p>
-          <p>{{ reviews.name }}</p>
-        </div>
+          <div class="feedback__item swiper-slide">
+              
+              <p class="standart-text">{{ r.description }}</p>
+              <p class="big-text">— {{ r.name }}</p>
+          </div>
         {% endfor %}
       </div>
     </div>
   </div>
 
-{% endblock cardReview %}
+
 
 <script type="module" src="{% static 'web/js/reviewSlider.js' %}"></script>
