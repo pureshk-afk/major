@@ -21,9 +21,10 @@
     {% endblock welcome %}
     {% block cardCategory %}
     {% endblock cardCategory %}
+    
    {% include "components/card_category.html" %}
-
-   {% include "components/card_review.html" %}
+    {% include "components/description.html" %}
+   <!-- {% include "components/card_review.html" %} -->
    
    <div class="lenta">
         <img src="{% static 'web/images/lenta.png' %}">
@@ -35,6 +36,7 @@
 
     
    <!-- {% include "components/advantages.html" %} -->
+    {% include "components/modal.html" %}
    {% include "components/footer.html" %}
     {% comment %} {% block mainmenu %}
     <ul>

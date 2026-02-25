@@ -44,32 +44,7 @@ $(document).ready(function() {
         e.stopPropagation();
     });
 
-    // Handle Apply Button Click
-    $('#apply-btn').click(function() {
-        const minPrice = $('#min-price').val();
-        const maxPrice = $('#max-price').val();
-        
-        // Get selected collections
-        const selectedCollections = [];
-        $('.collection-list input:checked').each(function() {
-            selectedCollections.push($(this).next().next().text().trim());
-        });
+    
+    
 
-        // Construct result message
-        let message = "Выбрано:\n";
-        
-        if (minPrice || maxPrice) {
-            message += `Цена: от ${minPrice || '0'} до ${maxPrice || '∞'}\n`;
-        } else {
-            message += "Цена: без ограничений\n";
-        }
-
-        if (selectedCollections.length > 0) {
-            message += `Коллекции: ${selectedCollections.join(', ')}`;
-        } else {
-            message += "Коллекции: все";
-        }
-
-        alert(message);
-    });
 });

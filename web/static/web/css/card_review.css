@@ -1,5 +1,20 @@
+.container__page {
+  width: 100dvw;
+  max-width: 1200px;
+  padding: 0 20px;
+  overflow: hidden;
+}
+
+#feedback-slider {
+  overflow-x: hidden;
+}
+
 .feedback {
   width: 100%;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
 }
 .feedback h2 {
   margin-bottom: 42px;

@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-import os
 from pathlib import Path
 from os import path, getenv
 from dotenv import load_dotenv
@@ -27,21 +26,24 @@ SECRET_KEY = getenv('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = getenv("DEBUG", "True") == "True"
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "0.0.0.0",
+] + getenv("DOMAIN", "localhost").split(",")
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'web',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "storages",
+    "web",
 ]
 
 MIDDLEWARE = [
@@ -114,27 +116,110 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "ru-ru"
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "Europe/Moscow"
 
 USE_I18N = True
 
 USE_TZ = True
 
+# Default primary key field type
+# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# Logging settings
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+        },
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": "DEBUG",
+    },
+}
+
+# Cache settings
+
+REDIS_HOST = getenv("REDIS_HOST", "127.0.0.1")
+REDIS_PORT = getenv("REDIS_PORT", "6379")
+
+CACHES_LIFETIME = int(getenv("REDIS_CACHE_LIFETIME", "10"))
+
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": f"redis://{REDIS_HOST}:{REDIS_PORT}/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        },
+    }
+}
+
+# S3 settings
+
+AWS_ACCESS_KEY_ID = getenv("MINIO_ACCESS_KEY_ID", "minioadmin")
+AWS_SECRET_ACCESS_KEY = getenv("MINIO_SECRET_ACCESS_KEY", "minioadmin")
+
+AWS_STORAGE_BUCKET_NAME = getenv("MINIO_STORAGE_BUCKET_NAME", "major")
+AWS_S3_ENDPOINT_URL = getenv("MINIO_ENDPOINT_URL", "http://localhost:9000")
+
+AWS_S3_REGION_NAME = getenv("MINIO_REGION_NAME", "ru-central-1")
+AWS_S3_ADDRESSING_STYLE = "path"
+
+AWS_S3_SIGNATURE_VERSION = "s3v4"
+
+AWS_QUERYSTRING_AUTH = True
+
+STORAGES = {
+    "default": {
+        "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
+        "OPTIONS": {
+            "bucket_name": AWS_STORAGE_BUCKET_NAME,
+            "default_acl": "public-read",
+        },
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+    },
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
+STATIC_ROOT = path.join(BASE_DIR, "staticfiles")
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = []
+STATICFILES_DIRS = [path.join(BASE_DIR, "static")]
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = f"{AWS_S3_ENDPOINT_URL}/{AWS_STORAGE_BUCKET_NAME}/"
+MEDIA_ROOT = None
+
+# Dashamail settings
+
+DASHAMAIL_URL = getenv("DASHAMAIL_URL", "https://api.dashamail.com/")
+DASHAMAIL_API_KEY = "5b0f8c758b9242b5ab7d90f53b8855a5"
+DASHAMAIL_LIST_ID = int(getenv("DASHAMAIL_LIST_ID"))
+DASHAMAIL_SENDER_EMAIL = getenv("DASHAMAIL_SENDER_EMAIL")
 
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
+### Security settings
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CSRF_COOKIE_SECURE = True
+
+SESSION_COOKIE_SECURE = True
+
+X_FRAME_OPTIONS = "SAMEORIGIN"
+
+SECURE_BROWSER_XSS_FILTER = True
+
+USE_X_FORWARDED_HOST = True
+
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")

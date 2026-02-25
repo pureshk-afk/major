@@ -1,0 +1,12 @@
+{
+  "editor.formatOnSave": false,
+  "editor.defaultFormatter": null,
+  "editor.formatOnSaveMode": "modificationsIfAvailable",
+  "editor.formatOnType": false,
+  "editor.formatOnPaste": false,
+  "scss.format.enable": false,
+  "html.format.enable": false,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "never"
+  }
+}

@@ -7,13 +7,13 @@
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
-<div class="feedback">
+<div class="container__page">
+  <div class="feedback">
     <h2 class="big-text">Отзывы</h2>
     <div id="feedback-slider">
       <div class="swiper-wrapper feedback__wrapper">
         {% for r in reviews %}
           <div class="feedback__item swiper-slide">
-              
               <p class="standart-text">{{ r.description }}</p>
               <p class="big-text">— {{ r.name }}</p>
           </div>
@@ -21,6 +21,7 @@
       </div>
     </div>
   </div>
+</div>
 
 
 
