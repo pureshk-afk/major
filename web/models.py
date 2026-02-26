@@ -1,7 +1,17 @@
 from django.db import models
 from django .utils.text import slugify
-# Create your models here.
 
+class Settings(models.Model):
+    key = models.CharField(max_length=100, unique=True)
+    name = models.CharField(max_length=100)
+    value = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Настройки"
+        verbose_name_plural = "Настройки"
 class Category(models.Model):
     name = models.CharField(max_length=100)
     slug = models.CharField(max_length=100, unique=True)
@@ -15,6 +25,10 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = "Категория"
+        verbose_name_plural = "Категории"
+
 class Collection(models.Model):
     name = models.CharField(max_length=100)
     slug = models.CharField(max_length=100, unique=True)
@@ -23,7 +37,9 @@ class Collection(models.Model):
 
     def __str__(self):
         return self.name
-    
+    class Meta:
+        verbose_name = "Коллекция"
+        verbose_name_plural = "Коллекции"
 
 class Product(models.Model):
     name = models.CharField(max_length=100)
@@ -51,6 +67,9 @@ class Product(models.Model):
     def __str__(self):
         return self.name
     
+    class Meta:
+        verbose_name = "Продукция"
+        verbose_name_plural = "Продукция"
 class Project(models.Model):
     name = models.CharField(max_length=100)
     slug = models.CharField(max_length=100, unique=True)
@@ -66,6 +85,10 @@ class Project(models.Model):
     def __str__(self):
         return self.name
     
+    class Meta:
+        verbose_name = "Проект"
+        verbose_name_plural = "Проекты"
+
 
 class Review(models.Model):
     name = models.CharField(max_length=100)
@@ -74,10 +97,46 @@ class Review(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = "Отзыв"
+        verbose_name_plural = "Отзывы"
+
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='images')
     image = models.ImageField(upload_to='products/extra/')
 
+    class Meta:
+        verbose_name = "Фото продукта"
+        verbose_name_plural = "Фото продукта"
+
 class ProjectImage(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='images')
     image = models.ImageField(upload_to='products/extra/')
+
+    class Meta:
+        verbose_name = "Фото проекта"
+        verbose_name_plural = "Фото проекта"
+class OrderRequest(models.Model):
+    name = models.CharField(max_length=255)
+    phone = models.CharField(max_length=100, blank=True)
+    email = models.EmailField(blank=True)
+    comment = models.TextField(blank=True)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.name} ({self.created_at})"
+
+class OrderFile(models.Model):
+    order = models.ForeignKey(
+        OrderRequest,
+        on_delete=models.CASCADE,
+        related_name="files"
+    )
+
+    file = models.FileField(upload_to="orders/%Y/%m/%d/")
+
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.file.name
