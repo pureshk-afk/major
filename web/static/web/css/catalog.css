@@ -4,4 +4,77 @@
   -ms-grid-columns: 300px 1fr;
   grid-template-columns: 300px 1fr;
   padding: 0 100px;
+  margin-bottom: 100px;
+}
+
+.pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 16px;
+  padding-top: 10px;
+}
+.pagination > * {
+  font-family: "Arsenal SC", sans-serif;
+  font-size: 18px;
+  color: black;
+  text-decoration-line: none;
+}
+.pagination__arrow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 12px;
+  padding: 4px;
+  border: 1px solid black;
+  border-radius: 6px;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  cursor: pointer;
+}
+.pagination__arrow-reverse {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+.pagination__arrow > img {
+  height: 14px;
+}
+.pagination__item-active {
+  text-decoration: underline;
+  font-weight: 600px;
+}
+
+@media (max-width: 1200px) {
+  .main_container {
+    padding: 0 40px;
+  }
+}
+@media (max-width: 940px) {
+  .main_container {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    -ms-grid-rows: auto 1fr;
+    grid-template-rows: auto 1fr;
+    margin-bottom: 50px;
+  }
+  .main_container > *:nth-child(1) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+  .main_container > *:nth-child(2) {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+  }
 }

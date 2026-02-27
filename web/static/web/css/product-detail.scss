@@ -27,13 +27,58 @@
 .thumbnails {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     gap: 16px;
+    max-height: 437px;
+    overflow-y: scroll;
+    margin: auto 0;
+  
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+    scroll-padding: 20px;
+
+    padding-right: 4px;
+    margin-right: -4px;
+
+    &::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    &::-webkit-scrollbar-button {
+      display: none;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+      margin-block: 8px;
+      margin-inline: 4px;
+      border-radius: 20px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 20px;
+      background-clip: padding-box;
+      border: 2px solid transparent;  /* ключевой момент для отступа */
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 0, 0, 0.4);
+      background-clip: padding-box;
+      border: 2px solid transparent;
+    }
+
+    &::-webkit-scrollbar-corner {
+      background: transparent;
+    }
+
 }
 
 .thumbnail {
     width: 135px;
+    min-width: 135px;
     height: 135px;
+    min-height: 135px;
     border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
@@ -54,9 +99,8 @@
 
 .main-image-wrapper {
     position: relative;
-    width: 100%;
-    max-width: 520px;
-    min-width: 50%;
+    height: 600px;
+    width: 490px;
     border-radius: 16px;
     overflow: hidden;
     background-color: #f3f4f6;
@@ -141,12 +185,11 @@
 }
 
 .action-button {
-    display: inline-block;
     width: 100%;
     max-width: 280px;
     padding: 16px 24px;
     background-color: transparent;
-    border: 2px solid var(--color-text-primary);
+    font-family: "Arsenal SC", sans-serif;
     border-radius: 12px;
     color: var(--color-text-primary);
     font-size: 1rem;
@@ -155,12 +198,9 @@
     cursor: pointer;
     transition: all 0.3s ease;
     text-decoration: none;
-    margin-bottom: 16px;
-}
-
-.action-button:hover {
-    background-color: var(--color-text-primary);
-    color: var(--color-card-bg);
+    margin: 16px 0;
+    border: 2px solid var(--color-text-primary);
+    box-sizing: border-box;
 }
 
 .designer-link {
@@ -256,21 +296,14 @@
     }
 }
 
-.title{
-    
-    max-width: 100%;
-    padding-left: 100px;
-    padding-top: 130px;
-    padding-bottom: 42px;
+.product__recommends {
+    padding: 130px 100px;
+    margin: 0 auto;
 }
 
 
-
-
-
 /* Responsive Design */
-@media (max-width: 900px) {
-
+@media (max-width: 940px) {
     .product-card {
         grid-template-columns: 1fr;
         padding: 24px;
@@ -279,17 +312,37 @@
 
     .gallery-container {
         flex-direction: column-reverse;
-        align-items: center;
     }
 
     .thumbnails {
+        overflow-y: unset;
+        margin: 0;
         flex-direction: row;
+        overflow-x: scroll;
+        gap: 10px;
+        width: 100%;
+        max-width: calc(100dvw - 80px);
+
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+    }
+
+    .thumbnail {
+        width: 100px;
+        min-width: 100px;
+        height: 100px;
+        min-height: 100px;
+        border-radius: 10px;
     }
 
     .main-image-wrapper {
         width: 100%;
-        height: auto;
-        aspect-ratio: 1 / 1;
+        max-width: 100dvw;
+        height: 600px;
+        max-height: 600px;
     }
 
     .product-info {
@@ -300,5 +353,28 @@
     .action-button {
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .container-dropdown {
+        padding: 50px 40px;
+        padding-bottom: 0;
+    }
+
+    #price-dropdown {
+        & > .dropdown-header {
+            padding: 16px;
+
+            & > .big-text {
+              font-size: 16px;  
+            }
+        } 
+    } 
+
+    .product__recommends {
+        padding: 50px 40px;
+
+        & > .big-text {
+            font-size: 32px;
+        }
     }
 }

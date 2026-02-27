@@ -1,19 +1,117 @@
-.welcome {
+.designers {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: calc(50% - 25px) 50px calc(50% - 25px);
+  grid-template-columns: repeat(2, calc(50% - 25px));
+  height: calc(100dvh - 116px);
+  gap: 50px;
+}
+.designers__text {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  width: 100dvw;
-  height: 729px;
-  background-color: aqua;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+  height: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
-.welcome .welcome-text {
-  max-width: 50%;
+.designers__text > h1 {
+  font-size: 40px;
+  font-family: "Arsenal SC", sans-serif;
+  text-transform: uppercase;
 }
-.welcome .welcome-img {
-  height: 100px;
-  width: 100px;
+.designers__text > p {
+  font-size: 16px;
+  font-family: "Arsenal SC", sans-serif;
+}
+.designers__text > a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 25px;
+  color: black;
+  font-weight: 600;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: 2px solid black;
+  border-radius: 14px;
+  text-decoration-line: none;
+  text-transform: uppercase;
+  font-family: "Arsenal SC", sans-serif;
+}
+.designers__preview, .designers__preview > img {
+  height: calc(100dvh - 116px);
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.designer-categories > h2 {
+  font-size: 32px;
+  font-family: "Arsenal SC", sans-serif;
+  text-transform: uppercase;
+  padding: 130px 100px 42px 100px;
+}
+
+@media (max-width: 940px) {
+  .designers {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: calc(50% - 8px) 16px calc(50% - 8px);
+    grid-template-columns: repeat(2, calc(50% - 8px));
+    height: calc(100dvh - 87px);
+    gap: 16px;
+  }
+  .designers__text {
+    gap: 16px;
+  }
+  .designers__text > h1 {
+    font-size: 32px;
+  }
+  .designers__text > p {
+    font-size: 14px;
+  }
+  .designers__text > a {
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+  }
+  .designers__preview, .designers__preview > img {
+    height: calc(100dvh - 87px);
+  }
+  .designer-categories > h2 {
+    font-size: 24px;
+    padding: 50px 40px 0px 40px;
+  }
+}
+@media (max-width: 640px) {
+  .designers {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .designers__text {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+  }
+  .designers__text > h1 {
+    font-size: 24px;
+  }
+  .designers__preview {
+    display: none;
+  }
+  .designers .text_path {
+    padding: 50px 40px;
+  }
 }

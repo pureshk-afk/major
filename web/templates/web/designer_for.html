@@ -1,27 +1,29 @@
 {% extends "web/base_all.html" %}
 {% load static %}
-<link type="text/css" rel="stylesheet" href="{% static 'web/css/designer_for.css' %}">
 
 {% block path %}
-             
+    <link type="text/css" rel="stylesheet" href="{% static 'web/css/designer_for.css' %}">
+    <div class="designers">
+        <div class="text_path">
+            <p class="standart-text">Главная / {{title}}</p>
+            <div class="designers__text">
+                <h1>Приглашаем дизайнеров к сотрудничеству</h1>
+                <p>Наша продукция - это отражение индивидуальности каждого клиента. Каждый предмет является результатом кропотливой работы команды и прослужит вам долгие годы. Поэтому  наш проект - это создание будущей истории.</p>
+                <a href="#ticket-form" class="white-link-btn">Начать сотрудничество</a>
+            </div>
+        </div>
+        <div class="designers__preview">
+            <img src="{% static 'web/images/welcome-for-designer.png' %}" alt="Для дизайнеров" />
+        </div>
+    </div>
 {% endblock path %}
 {% block content %}
-    <div class="welcome">
-        
-        <div class="welcome-text">
-            
-            
-            <div class="text_path">
-                <p class="standart-text">Главная / {{title}}</p>
-            </div>   
-            <h1 class="big-text">Приглашаем дизайнеров к сотрудничеству</h1>            
-            
-        </div>
-        <div class="welcome-img" style="background-image: url({% static 'web/images/welcome2.jpg' %});">
-
-        </div>
+    {% include 'components/advantages.html' %}
     
+    <div class="designer-categories">
+        <h2 class="big-text">Работы нашей студии</h2>
+        {% include "components/card_category.html" %}
     </div>
 
-    
+    {% include "components/modal.html" %}
 {% endblock content %}

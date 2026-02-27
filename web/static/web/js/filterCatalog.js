@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    // Функция для получения текущих параметров
     function getCurrentParams() {
         const urlParams = new URLSearchParams(window.location.search);
         return {
@@ -9,7 +8,6 @@ $(document).ready(function() {
         };
     }
     
-    // Функция для построения URL с параметрами
     function buildUrl(params) {
         const urlParams = new URLSearchParams();
         
@@ -21,16 +19,12 @@ $(document).ready(function() {
         return window.location.pathname + (queryString ? '?' + queryString : '');
     }
     
-    // Обработчики для фильтрации по категориям
     $('.menu__item a').on('click', function(e) {
         e.preventDefault();
         const href = $(this).attr('href');
         window.location.href = href;
     });
-    
-    // Если нужно реализовать AJAX-загрузку без перезагрузки страницы
-    // можно добавить здесь код для асинхронной загрузки товаров
-});
+  });
 
 document.addEventListener('DOMContentLoaded', function() {
     const categoryLinks = document.querySelectorAll('.menu__item a');
@@ -41,10 +35,8 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const url = this.href;
             
-            // Показываем индикатор загрузки
             cardsContainer.innerHTML = '<div class="loading"><p>Загрузка...</p></div>';
             
-            // Загружаем отфильтрованные товары
             fetch(url, {
                 headers: {
                     'X-Requested-With': 'XMLHttpRequest'
@@ -52,7 +44,6 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(response => response.text())
             .then(html => {
-                // Извлекаем обновленный блок с товарами
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(html, 'text/html');
                 const newCardsContainer = doc.querySelector('.cards_container');
@@ -61,7 +52,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     cardsContainer.innerHTML = newCardsContainer.innerHTML;
                 }
                 
-                // Обновляем активный класс в меню
                 categoryLinks.forEach(link => {
                     link.classList.remove('active');
                 });

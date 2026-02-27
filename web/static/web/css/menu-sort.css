@@ -62,3 +62,20 @@
 .sort-select:focus + .arrow-icon {
     transform: translateY(-50%) rotate(180deg);
 }
+
+@media (max-width: 1200px) {
+    .sort-container {
+        gap: 14px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+@media (max-width: 940px) {
+    .sort-container {
+        gap: 14px;
+        padding-left: 40px;
+    }
+    .sort-select {
+        min-width: unset;
+    }
+}

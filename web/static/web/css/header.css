@@ -359,3 +359,9 @@ header .header__content .header__content-menu ul .tel a {
     display: flex;
   }
 }
+@media (max-width: 940px) {
+  header {
+    padding: 20px 40px;
+    height: auto;
+  }
+}

@@ -62,7 +62,6 @@
   font-family: "Inter", sans-serif;
   color: #3a3a3a;
   letter-spacing: 0.06em;
-  text-transform: uppercase;
   outline: none;
   -webkit-transition: border-color 0.3s ease;
   transition: border-color 0.3s ease;
@@ -70,28 +69,24 @@
 
 .form-field input::-webkit-input-placeholder, .form-field textarea::-webkit-input-placeholder {
   color: #a8a094;
-  text-transform: uppercase;
   letter-spacing: 0.06em;
   font-size: 13px;
 }
 
 .form-field input::-moz-placeholder, .form-field textarea::-moz-placeholder {
   color: #a8a094;
-  text-transform: uppercase;
   letter-spacing: 0.06em;
   font-size: 13px;
 }
 
 .form-field input:-ms-input-placeholder, .form-field textarea:-ms-input-placeholder {
   color: #a8a094;
-  text-transform: uppercase;
   letter-spacing: 0.06em;
   font-size: 13px;
 }
 
 .form-field input::-ms-input-placeholder, .form-field textarea::-ms-input-placeholder {
   color: #a8a094;
-  text-transform: uppercase;
   letter-spacing: 0.06em;
   font-size: 13px;
 }
@@ -99,7 +94,6 @@
 .form-field input::placeholder,
 .form-field textarea::placeholder {
   color: #a8a094;
-  text-transform: uppercase;
   letter-spacing: 0.06em;
   font-size: 13px;
 }
@@ -287,6 +281,12 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+}
+@media (max-width: 940px) {
+  .container-modal {
+    margin-top: 50px;
+    padding: 20px 40px;
   }
 }
 @media (max-width: 800px) {

@@ -1,5 +1,63 @@
 .main_container{
     display: grid;
     grid-template-columns: 300px 1fr;
-    padding: 0 100px
+    padding: 0 100px;
+    margin-bottom: 100px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    padding-top: 10px;
+
+    & > * {
+      font-family: "Arsenal SC", sans-serif;
+      font-size: 18px;
+      color: black;
+      text-decoration-line: none;
+    }
+
+    &__arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 12px;
+        padding: 4px;
+        border: 1px solid black;
+        border-radius: 6px;
+        transform: rotate(180deg);
+        cursor: pointer;
+
+        &-reverse {
+            transform: rotate(0deg);
+        }
+
+        & > img {
+            height: 14px;
+        }
+    }
+
+    &__item {
+        &-active {
+            text-decoration: underline;
+            font-weight: 600px;
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .main_container {
+        padding: 0 40px;
+    }
+}
+
+@media (max-width: 940px) {
+    .main_container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+
+        margin-bottom: 50px;
+    }
 }

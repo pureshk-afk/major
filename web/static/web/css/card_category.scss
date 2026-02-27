@@ -34,6 +34,9 @@
 
 
         .white-btn{
+            display: flex;
+            justify-content: center;
+            align-items: center;
             opacity: 0;
             visibility: hidden;
             width: 217px;
@@ -44,8 +47,9 @@
             color: rgb(255, 255, 255);
             border: 1px solid white;
             transition: opacity 0.4s ease;
-
-            
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
 
         }
         .white-btn:hover{
@@ -84,4 +88,9 @@
 
 }
 
-
+@media (max-width: 940px) {
+    .conteiner_cards {
+        padding: 0;
+        margin: 50px 40px 0 40px;
+    }
+}

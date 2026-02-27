@@ -1,16 +1,115 @@
-.welcome{
-    display: flex;
-    flex-direction: row;
-    width: 100dvw;
-    height: 729px;
-    background-color: aqua;
+.designers {
+    display: grid;
+    grid-template-columns: repeat(2, calc(50% - 25px));
+    height: calc(100dvh - 116px);
+    gap: 50px;
 
-    .welcome-text{
-        max-width: 50%;
+    &__text {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        height: 100%;
+        justify-content: center;
     }
 
-    .welcome-img{
-        height: 100px;
-        width: 100px;
+    &__text > h1 {
+        font-size: 40px;
+        font-family: "Arsenal SC", sans-serif;
+        text-transform: uppercase;
+    }
+
+    &__text > p {
+        font-size: 16px;
+        font-family: "Arsenal SC", sans-serif;
+    }
+
+    &__text > a {
+        display: flex;
+        align-items: center;
+        padding: 25px;
+        color: black;
+        font-weight: 600;
+        width: fit-content;
+        border: 2px solid black;
+        border-radius: 14px;
+        text-decoration-line: none;
+        text-transform: uppercase;
+        font-family: "Arsenal SC", sans-serif;
+    }
+
+    &__preview, &__preview > img {
+        height: calc(100dvh - 116px);
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.designer-categories {
+    & > h2 {
+        font-size: 32px;
+        font-family: "Arsenal SC", sans-serif;
+        text-transform: uppercase;
+        padding: 130px 100px 42px 100px;
+    }
+}
+
+@media (max-width: 940px) {
+  .designers {
+      display: grid;
+      grid-template-columns: repeat(2, calc(50% - 8px));
+      height: calc(100dvh - 87px);
+      gap: 16px;
+
+      &__text {
+          gap: 16px;
+      }
+
+      &__text > h1 {
+          font-size: 32px;
+      }
+
+      &__text > p {
+          font-size: 14px;
+      }
+
+      &__text > a {
+          padding: 20px;
+          border: 2px solid black;
+          border-radius: 10px;
+      }
+
+      &__preview, &__preview > img {
+          height: calc(100dvh - 87px);
+      }
+  }
+
+  .designer-categories {
+      & > h2 {
+          font-size: 24px;
+          padding: 50px 40px 0px 40px;
+      }
+  }
+}
+
+@media (max-width: 640px) {
+    .designers {
+        display: flex;
+
+        &__text {
+            align-items: center;
+            text-align: center;
+        }
+
+        &__text > h1 {
+            font-size: 24px;
+        }
+
+        &__preview {
+            display: none;
+        }
+
+        .text_path {
+            padding: 50px 40px;
+        }
     }
 }

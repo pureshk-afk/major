@@ -1,6 +1,8 @@
 from django.contrib import admin
-from .models import Category, Collection, Product, Project, Review, ProductImage, ProjectImage
-# Register your models here.
+from .models import Category, Collection, Product, Project, Review, ProductImage, ProjectImage, Settings
+
+class SettingsAdmin(admin.ModelAdmin):
+    list_display = ['name', 'key', 'value']
 
 class ProductImageInline(admin.TabularInline):
     model = ProductImage
@@ -40,3 +42,4 @@ admin.site.register(Collection, CollectionAdmin)
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(Review, ReviewAdmin)
+admin.site.register(Settings, SettingsAdmin)

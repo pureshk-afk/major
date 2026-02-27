@@ -46,4 +46,21 @@
     color: #666;
 }
 
+@media (max-width: 1200px) {
+    .menu {
+        gap: 8px;
+        padding-bottom: 32px;
+        padding-left: 40px;
+    }
+}
 
+@media (max-width: 940px) {
+    .menu {
+        &__item {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            padding: 6px;
+        }
+    }
+}

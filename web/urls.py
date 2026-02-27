@@ -4,7 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.conf import settings
 
-from .views import collections, designer_for, index, catalog, info_user, portfolio, product_details, project_details
+from .views import collections, designer_for, index, catalog, info_user, portfolio, product_details, project_details, create_order
 
 
 app_name = 'major'
@@ -18,7 +18,5 @@ urlpatterns = [
     path('project/<slug:slug>', project_details, name="project_details"),
     path('designer_for/', designer_for, name='designer_for'),
     path('portfolio/', portfolio, name='portfolio'),
-
-    
-
+    path("api/orders/create-order/", create_order, name="create_order"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

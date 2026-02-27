@@ -10,6 +10,7 @@
   padding-left: 100px;
   padding-right: 100px;
   padding-top: 37px;
+  padding-bottom: 130px;
 }
 
 .dropdown {
@@ -65,7 +66,6 @@
 .dropdown-content {
   max-height: 0;
   overflow: hidden;
-  /* Transition is handled by JS for max-height, but we keep opacity for fade effect */
   -webkit-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
   opacity: 0;
@@ -73,10 +73,8 @@
 
 .dropdown.active .dropdown-content {
   opacity: 1;
-  /* Max-height will be set by JS to animate the expansion */
 }
 
-/* Price Input Styles */
 .desc-inputs {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -87,4 +85,11 @@
 }
 .desc-inputs .standart-text {
   text-transform: none;
+}
+
+@media (max-width: 940px) {
+  .container-dropdown {
+    padding: 50px 40px;
+    gap: 16px;
+  }
 }

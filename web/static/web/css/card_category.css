@@ -47,6 +47,15 @@
   background-size: cover;
 }
 .card-image .white-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   opacity: 0;
   visibility: hidden;
   width: 217px;
@@ -58,6 +67,9 @@
   border: 1px solid white;
   -webkit-transition: opacity 0.4s ease;
   transition: opacity 0.4s ease;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
 }
 .card-image .white-btn:hover {
   background-color: white;
@@ -90,4 +102,11 @@
 .card__info p {
   color: black;
   font-weight: 700;
+}
+
+@media (max-width: 940px) {
+  .conteiner_cards {
+    padding: 0;
+    margin: 50px 40px 0 40px;
+  }
 }

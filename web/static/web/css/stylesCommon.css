@@ -45,3 +45,17 @@
   text-transform: capitalize;
   color: rgb(102, 102, 102);
 }
+
+@media (max-width: 940px) {
+  .text_path {
+    padding-top: 50px;
+    padding-left: 40px;
+    gap: 32px;
+  }
+  .text_path .standart-text {
+    font-size: 14px;
+  }
+  .text_path .big-text {
+    font-size: 32px;
+  }
+}

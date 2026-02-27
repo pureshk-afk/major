@@ -1,9 +1,10 @@
 $(document).ready(function () {
-    var $burgerBtn = $('#burgerBtn');
-    var $drawer = $('#headerDrawer');
-    var $overlay = $('#drawerOverlay');
-    var $closeBtn = $('#drawerCloseBtn');
-    var $body = $('body');
+    let $burgerBtn = $('#burgerBtn');
+    let $drawer = $('#headerDrawer');
+    let $overlay = $('#drawerOverlay');
+    let $closeBtn = $('#drawerCloseBtn');
+    let $body = $('body');
+    let $makeOrderButton = $('#makeOrderButton');
 
     function openDrawer() {
         $burgerBtn.addClass('active');
@@ -35,10 +36,17 @@ $(document).ready(function () {
         closeDrawer();
     });
 
+    $makeOrderButton.on('click', function () {
+        closeDrawer();
+        setTimeout(() => {
+          window.location.href = '/#ticket-form';
+        }, 1);
+    });
+
     $('.drawer__nav-item, .drawer__login, .drawer__phone').on('click', function () {
         closeDrawer();
     });
-
+    
     $(document).on('keydown', function (e) {
         if (e.key === 'Escape' && $drawer.hasClass('active')) {
             closeDrawer();

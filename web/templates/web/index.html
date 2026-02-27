@@ -1,10 +1,11 @@
 {% extends "web/base.html" %}
 
 {% load static %}
+{% load setting %}
 
 
 {% block welcome %}
-    <div class="welcome" style="background-image: url('{% static 'web/images/welcome.svg' %}');">
+    <div class="welcome" style="background-image: url('{% static 'web/images/welcome-preview.jpg' %}');">
         {% block header %}
         <header class="header">
             <div class="header__content">
@@ -25,7 +26,7 @@
                         <li><a href="{% url 'web:portfolio' %}" class="standart-text">Портфолио</a></li>
                         <div class="tel"> 
                             <img src="{% static 'web/images/tel.svg' %}">
-                            <a href="#" class="standart-text">8 (918) 525-00-01</a>
+                            <a href="#" class="standart-text">{{ settings|setting_value:'phone' }}</a>
                         </div>
                     </ul>
                 </div>
@@ -66,7 +67,7 @@
     </div>
 
     <!-- Login -->
-    <a href="#" class="drawer__modal">
+    <a href="#" class="drawer__modal" id="makeOrderButton">
         оформить заказ
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="9 18 15 12 9 6"></polyline>
@@ -76,12 +77,12 @@
     <!-- Bottom contact info -->
     <div class="drawer__bottom">
         <div class="drawer__help-label">Нужна помощь?</div>
-        <a href="https://t.me/" class="drawer__telegram-link" target="_blank" rel="noopener">Задать вопрос в Telegram</a>
+        <a href="{{ settings|setting_value:'telegram' }}" class="drawer__telegram-link" target="_blank" rel="noopener">Задать вопрос в Telegram</a>
         <div class="drawer__support-info">
-            пн-вс | 10:00 - 21:00<br>
+            {{ settings|setting_value:'workdays' }} | {{ settings|setting_value:'business_time' }}<br>
             
         </div>
-        <a href="tel:88007700785" class="drawer__phone">8 (918) 525-00-01</a>
+        <a href="tel:{{ settings|setting_value:'phone' }}" class="drawer__phone">{{ settings|setting_value:'phone' }}</a>
     </div>
 </nav>
 
@@ -93,59 +94,19 @@
                 <p class="big-text">Дизайнерские предметы интерьера на заказ</p>
                 <p class="standart-text">От вашей мечты до готового интерьера: создаем единственные в своем роде вещи, которые идеально вписываются в ваше пространство и жизнь.</p>
             </div>
-            <button class="white-btn">Заказать индивидуальный проект</button>
+            <a class="white-btn" href="#ticket-form">Заказать индивидуальный проект</a>
         </div>
     </div>
 {% endblock welcome %}
 
+{% block review %}
 
+{% include 'components/card_review.html' %}
+
+{% endblock review %}
 
 {% block advantages %}
-        <div class="container">
-        <div class="features">
-            <!-- Section 1 -->
-            <div class="feature-item">
-                <div class="feature-text">
-                    <h2 class="big-text">Высокое качество изделий</h2>
-                    <p class="standart-text">
-                        Качество выполненных предметов интерьера залог не только высококлассного оборудования, но и работы целой команды мастеров своего дела. Качество выполненных предметов интерьера залог не только высококлассного оборудования, но и работы целой команды мастеров своего дела.
-                    </p>
-                </div>
-                <div class="feature-images">
-                    <img class="img-main" src="{% static 'web/images/work1.png' %}">
-                    <img class="img-secondary" src="{% static 'web/images/work2.png' %}">
-                </div>
-            </div>
-
-            <!-- Section 2 -->
-            <div class="feature-item reverse">
-                <div class="feature-text">
-                    <h2 class="big-text">Индивидуальный подход</h2>
-                    <p class="standart-text">
-                        Мы стремимся дарить нашим клиентам положительные эмоции благодаря нашей продукции, поэтому всегда прислушиваемся к желаниям каждого.
-                    </p>
-                </div>
-                <div class="feature-images">
-                    <img class="img-main" src="{% static 'web/images/lampa.png' %}">
-                    <img class="img-secondary" src="{% static 'web/images/lampa.png' %}">
-                </div>
-            </div>
-
-            <!-- Section 3 -->
-            <div class="feature-item">
-                <div class="feature-text">
-                    <h2 class="big-text">Эксклюзивность</h2>
-                    <p class="standart-text">
-                        Мы стремимся дарить нашим клиентам положительные эмоции благодаря нашей продукции, поэтому всегда прислушиваемся к желаниям каждого.
-                    </p>
-                </div>
-                <div class="feature-images">
-                    <img class="img-main" src="{% static 'web/images/lampa.png' %}">
-                    <img class="img-secondary" src="{% static 'web/images/lampa.png' %}">
-                </div>
-            </div>
-        </div>
-    </div>
+    {%  include 'components/advantages.html' %}
 {% endblock advantages %}
 
 

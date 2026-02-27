@@ -103,3 +103,26 @@
   color: black;
   font-weight: 700;
 }
+
+@media (max-width: 940px) {
+  .conteiner_cards {
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+@media (max-width: 640px) {
+  .conteiner_cards {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 10px;
+  }
+}

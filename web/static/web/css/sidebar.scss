@@ -183,3 +183,16 @@
 .apply-btn:active {
     transform: translateY(0);
 }
+
+@media (max-width: 1200px) {
+    .filter-card {
+        padding-top: 32px;
+    }
+}
+
+@media (max-width: 940px) {
+    .filter-card {
+        max-width: 100%;
+        padding-top: 12px;
+    }
+}

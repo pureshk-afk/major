@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: row;
     padding-left: 100px;
+    padding-right: 100px;
     padding-top: 70px;
     gap: 27px;
     
@@ -29,7 +30,7 @@
     display: flex;
     flex-direction: column;
     border-left: 1px solid rgb(133, 133, 133);
-    height: 245px;
+    height: auto;
     padding-left: 53px;
     gap: 30px;
 
@@ -63,4 +64,28 @@
     }
     
 
+}
+
+@media (max-width: 940px) {
+    .container {
+      padding: 50px 40px 0 40px;
+      gap: 16px;
+    }
+
+    .container__payment-and-delivery{
+        width: 100%;
+        max-width: 100%;
+
+        .big-text{
+            font-size: 24px;
+        }
+    }
+}
+
+@media (max-width: 650px) {
+    .info-main__container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
 }

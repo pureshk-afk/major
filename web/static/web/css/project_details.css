@@ -7,6 +7,7 @@
   max-width: 100%;
   margin-top: 70px;
   padding-left: 100px;
+  padding-right: 100px;
 }
 .container__img img {
   -o-object-fit: contain;
@@ -29,4 +30,31 @@
 .container__text .standart-text {
   text-transform: none;
   max-width: 80%;
+}
+
+@media (max-width: 940px) {
+  .container {
+    padding-right: 40px;
+    padding-left: 40px;
+    gap: 20px;
+  }
+  .container__text .big-text {
+    font-size: 32px;
+  }
+}
+@media (max-width: 640px) {
+  .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    gap: 20px;
+    margin-top: 30px;
+  }
+  .container__text {
+    padding-top: 0;
+  }
 }
