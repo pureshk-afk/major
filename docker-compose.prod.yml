@@ -1,0 +1,79 @@
+networks:
+  major:
+
+services:
+  postgres:
+    image: postgres:17.9-alpine3.23
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - "./postgres:/var/lib/postgresql/data"
+    networks:
+      - major
+
+  redis:
+    image: redis:8.6-alpine3.23
+    restart: unless-stopped
+    networks:
+      - major
+
+  minio:
+    image: minio/minio
+    restart: unless-stopped
+    environment:
+      - MINIO_ROOT_USER=${MINIO_USER}
+      - MINIO_ROOT_PASSWORD=${MINIO_PASSWORD}
+    ports:
+      - "127.0.0.1:9000:9000"
+      - "127.0.0.1:9001:9001"
+    command: server /data --console-address ":9001"
+    networks:
+      - major
+    volumes:
+      - ./minio:/data
+
+  app:
+    image: xoriax/major-app:v0.1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      - SECRET_KEY=${SECRET_KEY}
+      - DOMAIN=${DOMAIN}
+      - DEBUG=False
+      
+      - POSTGRES_HOST=postgres
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_PORT=5432
+      
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_CACHE_LIFETIME=1
+
+      - MINIO_ACCESS_KEY_ID=${MINIO_ACCESS_KEY_ID}
+      - MINIO_SECRET_ACCESS_KEY=${MINIO_SECRET_ACCESS_KEY}
+      - MINIO_STORAGE_BUCKET_NAME=major
+      - MINIO_REGION_NAME=ru-central-1
+      - MINIO_ENDPOINT_URL=http://minio:9000
+
+      - DASHAMAIL_URL=https://api.dashamail.com/
+      - DASHAMAIL_API_KEY=${DASHAMAIL_API_KEY}
+      - DASHAMAIL_SENDER_EMAIL=${DASHAMAIL_SENDER_EMAIL}
+      - DASHAMAIL_LIST_ID=${DASHAMAIL_LIST_ID}
+    volumes:
+      - "./app-media:/app/media"
+      - "./app-static:/static"
+    ports:
+      - "127.0.0.1:8000:8000"
+    depends_on:
+      - postgres
+      - redis
+      - minio
+    networks:
+      - major
