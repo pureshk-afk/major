@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="{% static 'web/css/styles.css' %}">
+    <link rel="shortcut icon" href="{% static 'web/images/logo3.svg' %}" type="image/x-icon">
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+    />
+    <title>{{title}}</title>
+</head>
+<body>
+    {% block welcome %}
+        {% block header %}
+        {% endblock header %}
+    {% endblock welcome %}
+    {% block cardCategory %}
+    {% endblock cardCategory %}
+   {% include "components/card_category.html" %}
+   <div class="lenta">
+        <img src="{% static 'web/images/lenta.png' %}">
+   </div>
+   {% comment %} {% include "components/card_review.html" %} {% endcomment %}
+   <!-- {% include "components/advantages.html" %} -->
+   {% include "components/footer.html" %}
+    {% comment %} {% block mainmenu %}
+    <ul>
+        {% for m in menu %}
+        <li class="link">{{m}}</li>
+        {% endfor %}
+    </ul>
+    {% endblock mainmenu %}
+
+    {% block content %}
+    
+    {% endblock content %} {% endcomment %}
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+</body>
+</html>

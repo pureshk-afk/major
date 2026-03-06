@@ -19,8 +19,19 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from web.views import index
+from web.views import collections
+
+
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include("web.urls", namespace='web')),
+    path('collections/', include("web.urls", namespace='web')),
+
+    
+
 ]
 
 # позволяет видеть картинки на сайте

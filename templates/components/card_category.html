@@ -1,0 +1,22 @@
+{% load static %}
+<link type="text/css" rel="stylesheet" href="{% static 'web/css/card_category.css' %}">
+{% block cardCategory %}
+    <div class="main_conteiner_cards">
+        <div class="conteiner_cards">
+            {% for c in  categories%}
+                <div class="card">
+                    <div class="card-image" style="background-image: url('{% static '{{c.main_image}}' %});">
+                        <button class="white-btn">Смотреть категорию</button>
+                    </div>
+                    <div class="card__info">
+                        <p class="standart-text">{{c.name}}</p>
+                        <p class="standart-text">от 5 500 ₽</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+
+    
+{% endblock cardCategory %}
