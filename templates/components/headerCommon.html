@@ -1,4 +1,5 @@
 {% load static %}
+{% load setting %}
 <link type="text/css" rel="stylesheet" href="{% static 'web/css/header.css' %}">
 <header>
     <div class="header__content">
@@ -17,7 +18,7 @@
                 <li><a href="{% url 'web:portfolio' %}" class="standart-text">Портфолио</a></li>
                 <div class="tel"> 
                     <img src="{% static 'web/images/tel.svg' %}">
-                    <a href="#" class="standart-text">8 (918) 525-00-01</a>
+                    <a href="#" class="standart-text">{{ settings|setting_value:'phone' }}</a>
                 </div>
                 
             </ul>
@@ -61,7 +62,7 @@
     </div>
 
     <!-- Login -->
-    <a href="#" class="drawer__modal">
+    <a href="#" class="drawer__modal" id="makeOrderButton">
         оформить заказ
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="9 18 15 12 9 6"></polyline>
@@ -71,12 +72,12 @@
     <!-- Bottom contact info -->
     <div class="drawer__bottom">
         <div class="drawer__help-label">Нужна помощь?</div>
-        <a href="https://t.me/" class="drawer__telegram-link" target="_blank" rel="noopener">Задать вопрос в Telegram</a>
+        <a href="{{ settings|setting_value:'telegram' }}" class="drawer__telegram-link" target="_blank" rel="noopener">Задать вопрос в Telegram</a>
         <div class="drawer__support-info">
-            пн-вс | 10:00 - 21:00<br>
+            {{ settings|setting_value:'workdays' }} | {{ settings|setting_value:'business_time' }}<br>
             
         </div>
-        <a href="tel:88007700785" class="drawer__phone">8 (918) 525-00-01</a>
+        <a href="tel:{{ settings|setting_value:'phone' }}" class="drawer__phone">{{ settings|setting_value:'phone' }}</a>
     </div>
 </nav>
 
