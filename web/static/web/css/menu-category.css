@@ -1,0 +1,30 @@
+.menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 8px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  padding-left: 100px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.menu__item {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: 1px solid black;
+  border-radius: 9px;
+  padding: 11px 11px;
+  cursor: pointer;
+}
+.menu__item:hover {
+  background-color: black;
+}
+.menu__item:hover p {
+  color: white;
+}

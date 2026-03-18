@@ -1,0 +1,185 @@
+
+
+.filter-card {
+   float: left;
+    width: 100%;
+    max-width: 200px;
+   
+    padding-left: 100px;
+    padding-top: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* Smooth transition for the card's height when content changes */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+    user-select: none;
+}
+
+.dropdown-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 12px 0;
+    transition: color 0.2s;
+}
+
+.dropdown-header:hover {
+    color: #333;
+}
+
+.dropdown-label {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.chevron {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown.active .chevron {
+    transform: rotate(180deg);
+}
+
+.dropdown-content {
+    max-height: 0;
+    overflow: hidden;
+    /* Transition is handled by JS for max-height, but we keep opacity for fade effect */
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.dropdown.active .dropdown-content {
+    opacity: 1;
+    /* Max-height will be set by JS to animate the expansion */
+}
+
+/* Price Input Styles */
+.price-inputs {
+    display: flex;
+    gap: 12px;
+    padding-top: 16px;
+}
+
+.input-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-label {
+    font-size: 12px;
+    color: #9ca3af;
+    font-weight: 500;
+}
+
+.text-input {
+    width: 60%;
+    padding: 10px 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.text-input:focus {
+    border-color: #000;
+}
+
+/* Collection Checkbox Styles */
+.collection-list {
+    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-family: "Arsenal SC", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    letter-spacing: 3%;
+    text-transform: uppercase;
+    color: rgb(0, 0, 0);
+    
+}
+
+.custom-checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #d1d5db;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+
+.checkbox-label input:checked + .custom-checkbox {
+    background-color: #000;
+    border-color: #000;
+}
+
+.checkbox-label input:checked + .custom-checkbox svg {
+    display: block;
+}
+
+.checkbox-label input {
+    display: none;
+}
+
+.check-icon {
+    display: none;
+    width: 14px;
+    height: 14px;
+    fill: white;
+}
+
+/* Button Styles */
+.apply-btn {
+    background: white;
+    color: black;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+    
+    
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+    margin-top: 10px;
+    font-family: "Arsenal SC", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 14px;
+    letter-spacing: 3%;
+    text-transform: uppercase;
+    color: rgb(0, 0, 0);
+}
+
+.apply-btn:hover {
+    
+    background-color: black;
+    color: white;
+}
+
+.apply-btn:active {
+    transform: translateY(0);
+}

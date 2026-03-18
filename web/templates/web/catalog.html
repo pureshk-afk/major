@@ -1,0 +1,10 @@
+{% extends "web/base_all.html" %}
+{% load static %}
+<link type="text/css" rel="stylesheet" href="{% static 'web/css/catalog.css' %}">
+{% block content %}
+    {% include "components/menu-category.html" %}
+    {% include "components/menu-sort.html" %}
+    {% include "components/sidebar.html" %}
+    {% include "components/card_product.html" %}
+    
+{% endblock content %}

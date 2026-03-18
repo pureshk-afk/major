@@ -8,15 +8,20 @@
     <link rel="shortcut icon" href="{% static 'web/images/logo3.svg' %}" type="image/x-icon">
     <title>{{title}}</title>
 </head>
-<body>
-   
-    {% include "components/headerCommon.html" %}
+    <body>
+    
+        {% include "components/headerCommon.html" %}
 
-    {% block content %}
-    
-    {% endblock content %} 
-    
-    {% include "components/footer.html" %}
-    
-</body>
+            <div class="text_path">
+                <p class="standart-text">Главная / {{title}}</p>
+                <p class="big-text">{{title}}</p>
+            </div>
+
+            {% block content %}
+            
+            {% endblock content %} 
+        
+        {% include "components/footer.html" %}
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    </body>
 </html>

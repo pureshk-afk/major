@@ -1,0 +1,17 @@
+{% load static %}
+<link type="text/css" rel="stylesheet" href="{% static 'web/css/card_colection.css' %}">
+<div class="cards_collection">
+    {% for c in collections%}
+    <div class="card" style="background-image: url('{{ c.main_image.url }}');">
+        <div class="card__glass">
+                <div class="card__glass-text">
+                    <h1 class="big-text">{{c.name}}</h1>
+                    <p class="standart-text">{{c.description}}</p>
+                </div>
+                <div class="card__glass-arrow">
+                    <img src="{% static 'web/images/arrow-white.svg' %}">
+                </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
