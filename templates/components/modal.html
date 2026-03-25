@@ -1,7 +1,9 @@
 {% load static %}
+{% load setting %}
+
 <link type="text/css" rel="stylesheet" href="{% static 'web/css/modal.css' %}">
 
-<div class="container-modal" style="background-image: url('{% static 'web/images/texture.png' %}');">
+<div class="container-modal" id="ticket-form" style="background-image: url('{% static 'web/images/texture.png' %}');">
     <div class="container-modal__text">
         <h1 class="big-text">Есть идеи, которые вы хотите воплотить
              в жизнь? Мы поможем!</h1>
@@ -41,7 +43,7 @@
             <div class="uploaded-files" id="uploadedFiles"></div>
 
             <div class="agreement" >
-                Нажимая кнопку "Отправить", я принимаю условия <a href="#" onclick="event.preventDefault()">пользовательского соглашения</a> и даю согласие на обработку моих персональных данных.
+                Нажимая кнопку "Отправить", я принимаю условия <a href="{{ settings|setting_value:'offer_agreement' }}" onclick="event.preventDefault()">пользовательского соглашения</a> и даю согласие на обработку моих персональных данных.
             </div>
 
             <button type="submit" class="submit-btn" id="submitBtn">ОТПРАВИТЬ ЗАЯВКУ</button>
@@ -50,3 +52,4 @@
 </div>
 
 <script src="{% static 'web/js/fileUpload.js' %}"></script>
+<script src="{% static 'web/js/saveOrder.js' %}"></script>
