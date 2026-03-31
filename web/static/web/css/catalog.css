@@ -1,0 +1,7 @@
+.main_container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 300px 1fr;
+  grid-template-columns: 300px 1fr;
+  padding: 0 100px;
+}

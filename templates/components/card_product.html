@@ -4,27 +4,34 @@
 
 <div class="cards_container">
     {% for p in products%}
-    <div class="card" >
-        <!-- <div class="product_img" style="background-image: url('{{ p.main_image.url }}');"> -->
-        <div class="product_img" style="background-image: url('{{ p.main_image.url }}');">
+    
+        <div class="card" >
+            <a href="{% url 'major:product_details' slug=p.slug %}" style="text-decoration: none; color: inherit;">
+                <div class="product_img" style="background-image: url('{{ p.main_image.url }}');">
 
-        </div>
-        <div class="card_content">
-            <div class="card_content-info">
-                <p class="standart-text" style="font-weight: 700;" >{{p.name}}</p>
-                <p class="standart-text" style="text-transform: none;" >Цена от {{p.price}} ₽</p>
-            </div>
-            <div class="card_content-act">
-                <button class="btn">
-                    Заказать
-                </button>
-                <img src="{% static 'web/images/arrow-black.svg' %}">
-            </div>
+                </div>
+                <div class="card_content">
+                    <div class="card_content-info">
+                        <p class="standart-text" style="font-weight: 700;" >{{p.name}}</p>
+                        <p class="standart-text" style="text-transform: none;" >Цена от {{p.price|floatformat:"2g"}} ₽</p>
+                    </div>
+                    <div class="card_content-act">
+                        <button class="btn">Оставить заявку</button>
+                           
+                        <img class="arrow" src="{% static 'web/images/arrow-black.svg' %}">
+                    </div>
+                    
+                </div>
+            </a>
+            <!-- <div class="product_img" style="background-image: url('{{ p.main_image.url }}');"> -->
             
-
+            
         </div>
-        
-    </div>
+        {% empty %}
+        <div class="no-products">
+            <p class="standart-text">Товары в этой категории не найдены</p>
+        </div>
+   
     {% endfor %}
 </div>
     

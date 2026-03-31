@@ -1,0 +1,79 @@
+{% extends "web/base_all.html" %}
+{% load static %}
+
+{% block content %}
+    <link type="text/css" rel="stylesheet" href="{% static 'web/css/product-detail.css' %}">
+    <div class="product-card_container">
+        <div class="product-card">
+            <!-- Галерея изображений -->
+            <div class="gallery-container">
+                <div class="thumbnails">
+                    <div class="thumbnail active" data-index="0">
+                        <img src="https://image.qwenlm.ai/public_source/850d4c46-5f57-4c81-b456-e72b53e21a1e/1a862ea6d-cbba-4735-b42a-fd219faf7ac8.png" alt="Настольная лампа Waves - вид спереди">
+                    </div>
+                    <div class="thumbnail" data-index="1">
+                        <img src="https://image.qwenlm.ai/public_source/850d4c46-5f57-4c81-b456-e72b53e21a1e/1e894e7cd-285a-47bf-b8e8-656114a8f6d2.png" alt="Настольная лампа Waves - вид сбоку">
+                    </div>
+                    <div class="thumbnail" data-index="2">
+                        <img src="https://image.qwenlm.ai/public_source/850d4c46-5f57-4c81-b456-e72b53e21a1e/124cdc66b-d236-48c0-8d1c-e72fad70ebb1.png" alt="Настольная лампа Waves - крупный план">
+                    </div>
+                    <div class="thumbnail" data-index="3">
+                        <img src="https://image.qwenlm.ai/public_source/850d4c46-5f57-4c81-b456-e72b53e21a1e/16a7f2187-626a-40d8-a84f-05c1317f9ffb.png" alt="Настольная лампа Waves - вид сверху">
+                    </div>
+                </div>
+                <div class="main-image-wrapper">
+                    <img class="main-image" src="https://image.qwenlm.ai/public_source/850d4c46-5f57-4c81-b456-e72b53e21a1e/1a862ea6d-cbba-4735-b42a-fd219faf7ac8.png" alt="Настольная лампа Waves">
+                    <div class="nav-arrow prev-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 18L9 12L15 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="nav-arrow next-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 18L15 12L9 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Информация о товаре -->
+            <div class="product-info">
+                <h1 class="big-text" style="font-size: 24px;">{{the_product.name}}</h1>
+                <ul class="product-details">
+                    <li class="standart-text" style="text-transform: none;">Стиль: {{the_product.style}}</li>
+                    <li class="standart-text" style="text-transform: none;">Материал: {{the_product.material}}</li>
+                    <li class="standart-text" style="text-transform: none;">Параметры:</li>
+                    <li class="standart-text" style="text-transform: none;" >Длина - {{the_product.length}}</li>
+                    <li class="standart-text" style="text-transform: none;">Ширина - {{the_product.width}}</li>
+                    <li class="standart-text" style="text-transform: none;">Высота - {{the_product.height}}</li>
+                </ul>
+                <div class="big-text" style="font-size: 24px;">{{the_product.price}} ₽</div>
+                <button class="action-button">ОСТАВИТЬ ЗАЯВКУ</button>
+                <a href="#" class="designer-link">Вы дизайнер? <span>Узнать специальную цену</span></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-dropdown">
+        <div class="dropdown" id="price-dropdown">
+            <div class="dropdown-header">
+                <span class="big-text">Размер и характеристики</span>
+                <img class="chevron" src="{% static 'web/images/arrow-bottom.svg' %}">
+            </div>
+            <div class="dropdown-content">
+                <div class="desc-inputs">
+                    <p class="standart-text">{{the_product.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="title">
+    <h1 class="big-text">Возможно вам понравится</h1> 
+    </div>
+
+    {% include "components/card_product.html" %}
+
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="{% static 'web/js/gallery.js' %}"></script>
+    <script src="{% static 'web/js/SideBarFilter.js' %}"></script>
+{% endblock content %}
+
+

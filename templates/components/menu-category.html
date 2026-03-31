@@ -2,9 +2,14 @@
 <link type="text/css" rel="stylesheet" href="{% static 'web/css/menu-category.css' %}">
 
 <div class="menu">
+     <div class="menu__item">
+        <a class="standart-text {% if not selected_category %}active{% endif %}" 
+           href="?{% if current_sort != 'default' %}sort={{ current_sort }}{% endif %}">Все</a>
+    </div>
     {% for c in categories%}
         <div class="menu__item">
-            <p class="standart-text">{{c.name}}</p>
+            <a class="standart-text {% if selected_category and selected_category.slug == c.slug %}active{% endif %}" 
+               href="?category={{ c.slug }}{% if current_sort != 'default' %}&sort={{ current_sort }}{% endif %}">{{c.name}}</a>
         </div>
     {% endfor %}
 </div>

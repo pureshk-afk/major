@@ -23,6 +23,7 @@ from web.views import index
 from web.views import collections
 from web.views import catalog
 from web.views import info_user
+from web.views import product_details
 
 
 
@@ -35,6 +36,8 @@ urlpatterns = [
     path('catalog/', include("web.urls", namespace='web')),
     path('catalog/', include("web.urls", namespace='web')),
     path('info/', include("web.urls", namespace='web')),
+    path('product/<slug:slug>', include("web.urls", namespace='web')),
+
     
 
 ]

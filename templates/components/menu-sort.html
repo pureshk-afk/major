@@ -1,14 +1,14 @@
 {% load static %}
 <link type="text/css" rel="stylesheet" href="{% static 'web/css/menu-sort.css' %}">
-
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <div class="sort-container">
         <span class="standart-text">Сортировка</span>
         
         <div class="sort-select-wrapper">
             <select class="sort-select" id="sortSelect">
-                <option class="standart-text" value="default">По умолчанию</option>
-                <option class="standart-text" value="price_asc">По возрастанию цены</option>
-                <option class="standart-text" value="price_desc">По убыванию цены</option>
+                <option class="standart-text" value="default" {% if current_sort == 'default' %}selected{% endif %}>По умолчанию</option>
+                <option class="standart-text" value="price_asc" {% if current_sort == 'price_asc' %}selected{% endif %}>По возрастанию цены</option>
+                <option class="standart-text" value="price_desc" {% if current_sort == 'price_desc' %}selected{% endif %}>По убыванию цены</option>
                 
             </select>
             
@@ -18,3 +18,4 @@
 </div>
 
 <script src="{% static 'web/js/sortMenu.js' %}"></script>
+<script src="{% static 'web/js/filterCatalog.js' %}"></script>
