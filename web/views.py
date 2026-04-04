@@ -49,3 +49,18 @@ def product_details(request, slug: str):
     the_product = Product.objects.get(slug=slug)
     print(product)
     return render(request, 'web/product-details.html', {'products': products, 'the_product' : the_product})
+
+def designer_for(request):
+    
+    return render(request, 'web/designer_for.html', {'title': 'Дизайнерам'})
+
+def portfolio(request):
+    projects = Project.objects.all()
+    return render(request, 'web/portfolio.html', {'projects': projects,'title': 'Портфолио проектов дизайн-студии major'})
+
+def project_details(request, slug: str):
+    project = get_object_or_404(Project, slug=slug)
+    projects = Project.objects.all()
+    the_project = Project.objects.get(slug=slug)
+    project_image = ProjectImage.objects.filter(project__slug=slug)
+    return render(request, 'web/project-details.html', {'projects': projects, 'the_project' : the_project, 'project_image':project_image})

@@ -1,0 +1,19 @@
+.welcome {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100dvw;
+  height: 729px;
+  background-color: aqua;
+}
+.welcome .welcome-text {
+  max-width: 50%;
+}
+.welcome .welcome-img {
+  height: 100px;
+  width: 100px;
+}

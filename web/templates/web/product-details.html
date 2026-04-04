@@ -1,6 +1,12 @@
 {% extends "web/base_all.html" %}
 {% load static %}
-
+{% block path %}
+    <div class="text_path">
+        <p class="standart-text">Главная / {{title}}</p>
+            
+        <p class="big-text">{{title}}</p>
+    </div>          
+{% endblock path %}
 {% block content %}
     <link type="text/css" rel="stylesheet" href="{% static 'web/css/product-detail.css' %}">
     <div class="product-card_container">

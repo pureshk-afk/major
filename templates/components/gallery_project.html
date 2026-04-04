@@ -1,0 +1,7 @@
+{% load static %}
+<link type="text/css" rel="stylesheet" href="{% static 'web/css/gallery_project.css' %}">
+<div class="gallery">
+    {% for p in project_image%}
+        <img src="{{ p.image.url }}" class="gallery__item">
+    {% endfor %}
+</div>
