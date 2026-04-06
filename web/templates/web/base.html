@@ -23,7 +23,13 @@
    <div class="lenta">
         <img src="{% static 'web/images/lenta.png' %}">
    </div>
-   {% comment %} {% include "components/card_review.html" %} {% endcomment %}
+
+   {% block advantages %}
+        
+    {% endblock advantages %}
+
+    {% block cardReview %}
+    {% endblock cardReview %}
    <!-- {% include "components/advantages.html" %} -->
    {% include "components/footer.html" %}
     {% comment %} {% block mainmenu %}

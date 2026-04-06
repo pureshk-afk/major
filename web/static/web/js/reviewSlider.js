@@ -1,7 +1,7 @@
-const swiper = new Swiper("#review-slider", {
+const swiper = new Swiper("#feedback-slider", {
   loop: true,
   autoplay: {
-    delay: 1,
+    delay: 0,
     disableOnInteraction: false
   },
   speed: 5000,

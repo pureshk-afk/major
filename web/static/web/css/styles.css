@@ -34,15 +34,24 @@
   border-radius: 10px;
   border: none;
   background-color: white;
-  width: 346px;
-  height: 70px;
+  max-width: 346px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+
+.white-btn:hover {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
 }
 
 .header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
   height: 130px;
   background-color: rgba(0, 0, 0, 0);
   -webkit-box-pack: center;
@@ -90,6 +99,7 @@
 .header__content-menu ul a {
   text-decoration: none;
   color: white;
+  text-transform: uppercase;
 }
 .header__content-menu ul .tel {
   display: -webkit-box;
@@ -108,6 +118,539 @@
   text-decoration: underline;
 }
 
+.header__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.header__overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.burger-btn {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  gap: 5px;
+  position: relative;
+  z-index: 1000;
+}
+
+.burger-btn span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 2px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.burger-btn.active span:nth-child(1) {
+  -webkit-transform: translateY(7px) rotate(45deg);
+          transform: translateY(7px) rotate(45deg);
+}
+
+.burger-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-btn.active span:nth-child(3) {
+  -webkit-transform: translateY(-7px) rotate(-45deg);
+          transform: translateY(-7px) rotate(-45deg);
+}
+
+.header__drawer {
+  position: fixed;
+  top: 0;
+  left: -420px;
+  width: 420px;
+  max-width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 999;
+  -webkit-transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.header__drawer.active {
+  left: 0;
+}
+
+.drawer__top-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 12px 20px;
+  padding-right: 40%;
+  border-bottom: 1px solid #e5e5e5;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.drawer__close-btn {
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0;
+  border-radius: 4px;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+
+.drawer__close-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.drawer__close-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.drawer__brand {
+  font-family: "Arsenal SC", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  letter-spacing: 3%;
+  text-transform: uppercase;
+  color: #1a1a1a;
+}
+
+.drawer__nav {
+  padding: 12px 0;
+}
+
+.drawer__nav-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 12px 20px;
+  font-family: "Arsenal SC", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 16px;
+  letter-spacing: 3%;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  text-decoration: none;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+
+.drawer__nav-item:hover {
+  background-color: #f7f7f7;
+}
+
+.drawer__nav-item svg {
+  width: 16px;
+  height: 16px;
+  color: #999;
+}
+
+.drawer__divider {
+  height: 1px;
+  background-color: #e5e5e5;
+  margin: 4px 20px;
+}
+
+.drawer__modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 16px 20px;
+  text-decoration: none;
+  color: #1a1a1a;
+  font-family: "Arsenal SC", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 16px;
+  letter-spacing: 3%;
+  text-transform: uppercase;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+
+.drawer__modal:hover {
+  background-color: #f7f7f7;
+}
+
+.drawer__modal svg {
+  width: 16px;
+  height: 16px;
+  color: #999;
+}
+
+.drawer__bottom {
+  padding: 20px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.drawer__help-label {
+  font-family: "Arsenal SC", sans-serif;
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 6px;
+}
+
+.drawer__telegram-link {
+  font-family: "Arsenal SC", sans-serif;
+  font-size: 15px;
+  color: #1a1a1a;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.drawer__support-info {
+  font-family: "Arsenal SC", sans-serif;
+  font-size: 16px;
+  color: #777;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.drawer__phone {
+  font-family: "Arsenal SC", sans-serif;
+  font-size: 16px;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 500;
+  display: block;
+}
+
+.drawer__phone:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0px 100px;
+}
+
+.features {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 100px;
+}
+
+.feature-item {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 50px 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.feature-text {
+  max-width: 540px;
+}
+
+.big-text {
+  margin-bottom: 24px;
+  color: #1a1a1a;
+  line-height: 1.2;
+}
+
+.standart-text {
+  text-transform: none;
+  font-size: 16px;
+  color: #3a3a3a;
+}
+
+.feature-images {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 20px 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  position: relative;
+}
+
+.feature-images .img-main {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  -ms-grid-column: 1;
+  grid-column: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 4px;
+}
+
+.feature-images .img-secondary {
+  -ms-grid-row: 2;
+  grid-row: 2/2;
+  -ms-grid-column: 2;
+  grid-column: 2;
+  width: 100%;
+  height: 100%;
+  min-height: 160px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 4px;
+}
+
+.feature-images .img-tertiary {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  -ms-grid-column: 2;
+  grid-column: 2;
+  width: 100%;
+  height: 100%;
+  min-height: 160px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Alternating layout */
+.feature-item.reverse .feature-text {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+
+.feature-item.reverse .feature-images {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .container {
+    padding: 60px 30px;
+  }
+  .features {
+    gap: 70px;
+  }
+  .feature-item {
+    -ms-grid-columns: 1fr 30px 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+  .feature-title {
+    font-size: 26px;
+  }
+  .feature-description {
+    font-size: 13px;
+  }
+  .feature-images {
+    gap: 15px;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    padding: 50px 20px;
+  }
+  .features {
+    gap: 60px;
+  }
+  .feature-item {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .feature-item.reverse .feature-text {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+  .feature-item.reverse .feature-images {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  .feature-text {
+    max-width: 100%;
+  }
+  .feature-title {
+    font-size: 24px;
+    letter-spacing: 1.5px;
+  }
+  .feature-description {
+    font-size: 13px;
+  }
+  .feature-images {
+    -ms-grid-columns: 1fr 12px 1fr;
+    grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: auto 12px auto;
+    grid-template-rows: auto auto;
+    gap: 12px;
+  }
+  .feature-images > *:nth-child(1) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+  .feature-images > *:nth-child(2) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+  }
+  .feature-images > *:nth-child(3) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+  }
+  .feature-images > *:nth-child(4) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 3;
+  }
+  .feature-images .img-main {
+    min-height: 200px;
+  }
+  .feature-images .img-secondary,
+  .feature-images .img-tertiary {
+    min-height: 140px;
+  }
+}
+@media (max-width: 480px) {
+  .container {
+    padding: 40px 16px;
+  }
+  .features {
+    gap: 50px;
+  }
+  .feature-title {
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+  .feature-description {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .feature-images {
+    -ms-grid-columns: 1fr 10px 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .feature-images .img-main {
+    min-height: 160px;
+  }
+  .feature-images .img-secondary,
+  .feature-images .img-tertiary {
+    min-height: 110px;
+  }
+}
+@media (max-width: 360px) {
+  .feature-title {
+    font-size: 18px;
+  }
+  .feature-description {
+    font-size: 11px;
+  }
+  .feature-images {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+  .feature-images .img-main {
+    grid-row: auto;
+    grid-column: auto;
+    min-height: 180px;
+  }
+  .feature-images .img-secondary,
+  .feature-images .img-tertiary {
+    min-height: 140px;
+  }
+}
+@media (max-width: 1184px) {
+  header {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .burger-btn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .header__content-menu {
+    display: none !important;
+  }
+  .header__drawer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
 .welcome {
   background-repeat: no-repeat;
   height: 1000px;
@@ -126,7 +669,6 @@
           flex-direction: column;
   padding-top: 80px;
   padding-left: 211px;
-  width: 73%;
   height: 270px;
 }
 .welcome__content-name {
@@ -140,11 +682,13 @@
   gap: 14px;
 }
 .welcome__content-name .big-text {
-  width: 562px;
+  max-width: 562px;
+  color: white;
 }
 .welcome__content-name .standart-text {
-  width: 626px;
+  max-width: 626px;
   text-transform: none;
+  color: #fff;
 }
 
 .lenta {
