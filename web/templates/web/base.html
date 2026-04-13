@@ -11,8 +11,10 @@
         href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
     />
     <title>{{title}}</title>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 </head>
 <body>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     {% block welcome %}
         {% block header %}
         {% endblock header %}
@@ -20,6 +22,9 @@
     {% block cardCategory %}
     {% endblock cardCategory %}
    {% include "components/card_category.html" %}
+
+   {% include "components/card_review.html" %}
+   
    <div class="lenta">
         <img src="{% static 'web/images/lenta.png' %}">
    </div>
@@ -28,8 +33,7 @@
         
     {% endblock advantages %}
 
-    {% block cardReview %}
-    {% endblock cardReview %}
+    
    <!-- {% include "components/advantages.html" %} -->
    {% include "components/footer.html" %}
     {% comment %} {% block mainmenu %}
@@ -45,6 +49,6 @@
     {% endblock content %} {% endcomment %}
     
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-
+    <script type="module" src="{% static 'web/js/reviewSlider.js' %}"></script>
 </body>
 </html>

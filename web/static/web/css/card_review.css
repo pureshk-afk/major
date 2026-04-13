@@ -1,79 +1,28 @@
-.standart-text {
-  font-size: 16px;
-  color: black;
-  text-transform: none;
-}
-
-.standart-text-n {
-  font-family: "Arsenal SC", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  font-size: 24px;
-  letter-spacing: 3%;
-  text-transform: uppercase;
-  color: rgb(0, 0, 0);
-}
-
-.main_container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 40px;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  background-color: rgb(226, 208, 183);
+.feedback {
   width: 100%;
 }
-.main_container h1 {
-  color: black;
+.feedback h2 {
+  margin-bottom: 42px;
+  margin-top: 130px;
   padding-left: 100px;
 }
-
-.review-slider__container {
+.feedback .feedback__item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
-  background-color: antiquewhite;
-}
-.review-slider__container .review-slider__item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  height: 226px;
-  width: 442px;
-  -webkit-box-shadow: 0px 11px 28px -1 rgba(0, 0, 0, 0.311);
-          box-shadow: 0px 11px 28px -1 rgba(0, 0, 0, 0.311);
-  background-color: white;
-  border-radius: 10px;
-}
-.review-slider__container .review-slider__item .content {
-  padding-top: 45px;
-  padding-bottom: 45px;
-  padding-left: 23px;
-  padding-right: 23px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  gap: 40px;
+  max-width: 442px;
+  max-height: 226px;
+  border-radius: 10px;
+  padding: 45px 24px;
+  -webkit-box-shadow: 10px 10px 30px rgba(18, 18, 18, 0.183);
+          box-shadow: 10px 10px 30px rgba(18, 18, 18, 0.183);
 }
-.review-slider__container .swiper-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  gap: 44px;
+.feedback .feedback__item .big-text {
+  font-size: 24px;
+  margin: 0;
 }
