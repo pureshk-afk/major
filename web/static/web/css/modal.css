@@ -1,0 +1,307 @@
+.container-modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background-size: cover;
+  background-position: center;
+  margin-top: 130px;
+  max-width: 100%;
+  padding: 60px 100px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 30px;
+}
+.container-modal__text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 602px;
+}
+.container-modal__text h1 {
+  font-size: 32px;
+}
+.container-modal__text p {
+  color: rgb(92, 92, 92);
+}
+.container-modal__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.container-modal__form form {
+  width: 100%;
+}
+.container-modal__form .form-field {
+  margin-bottom: 22px;
+  position: relative;
+}
+
+.form-field input[type=text],
+.form-field input[type=tel],
+.form-field input[type=email],
+.form-field textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #b8b0a4;
+  background: transparent;
+  padding: 10px 0;
+  font-size: 13px;
+  font-family: "Inter", sans-serif;
+  color: #3a3a3a;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  outline: none;
+  -webkit-transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease;
+}
+
+.form-field input::-webkit-input-placeholder, .form-field textarea::-webkit-input-placeholder {
+  color: #a8a094;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 13px;
+}
+
+.form-field input::-moz-placeholder, .form-field textarea::-moz-placeholder {
+  color: #a8a094;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 13px;
+}
+
+.form-field input:-ms-input-placeholder, .form-field textarea:-ms-input-placeholder {
+  color: #a8a094;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 13px;
+}
+
+.form-field input::-ms-input-placeholder, .form-field textarea::-ms-input-placeholder {
+  color: #a8a094;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 13px;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: #a8a094;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 13px;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-bottom-color: #4a4a4a;
+}
+
+.form-field textarea {
+  border: 1px solid #b8b0a4;
+  min-height: 90px;
+  resize: vertical;
+  padding: 12px;
+  border-radius: 0;
+  line-height: 1.5;
+}
+
+.form-field textarea:focus {
+  border-color: #4a4a4a;
+}
+
+.file-upload-area {
+  border: 1px solid #b8b0a4;
+  padding: 10px 14px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  -webkit-transition: border-color 0.3s ease, background-color 0.3s ease;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.file-upload-area:hover {
+  border-color: #4a4a4a;
+  background-color: rgba(0, 0, 0, 0.015);
+}
+
+.file-upload-area svg {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.file-upload-area span {
+  font-size: 12px;
+  color: #a8a094;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.file-upload-area input[type=file] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.uploaded-files {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.uploaded-file {
+  width: 56px;
+  height: 56px;
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.uploaded-file img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.uploaded-file .remove-file {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 16px;
+  height: 16px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+}
+
+.uploaded-file:hover .remove-file {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.uploaded-file .remove-file svg {
+  width: 8px;
+  height: 8px;
+}
+
+.agreement {
+  font-size: 13px;
+  color: #6b6b6b;
+  line-height: 1.6;
+  margin-bottom: 22px;
+  font-family: "Arsenal SC", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 3%;
+  color: rgb(0, 0, 0);
+}
+
+.agreement a {
+  color: #6b6b6b;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.agreement a:hover {
+  color: #3a3a3a;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 16px 32px;
+  border: 1px solid #3a3a3a;
+  font-family: "Arsenal SC", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 16px;
+  letter-spacing: 3%;
+  text-transform: uppercase;
+  background: transparent;
+  color: #3a3a3a;
+  border-radius: 7px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-btn:hover {
+  background: #3a3a3a;
+  color: #f5f1ea;
+}
+
+.submit-btn:active {
+  -webkit-transform: scale(0.99);
+          transform: scale(0.99);
+}
+
+.submit-btn.success {
+  background: #2a7a4b;
+  border-color: #2a7a4b;
+  color: #fff;
+}
+
+@media (max-width: 1000px) {
+  .container-modal {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+@media (max-width: 800px) {
+  .form-section {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 30px;
+    gap: 30px;
+  }
+  .form-left h2 {
+    font-size: 20px;
+  }
+  .form-left p {
+    font-size: 11px;
+  }
+}

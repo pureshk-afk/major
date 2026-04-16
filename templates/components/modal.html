@@ -1,0 +1,52 @@
+{% load static %}
+<link type="text/css" rel="stylesheet" href="{% static 'web/css/modal.css' %}">
+
+<div class="container-modal" style="background-image: url('{% static 'web/images/texture.png' %}');">
+    <div class="container-modal__text">
+        <h1 class="big-text">Есть идеи, которые вы хотите воплотить
+             в жизнь? Мы поможем!</h1>
+        <p class="standart-text">Опишите вашу идею и приложите примеры 
+            работ, которые вам понравились. Мы внимательно рассмотрим  
+            заявку и свяжемся с вами 
+            для обсуждения предложенного проекта. </p>
+    </div>
+    <div class="container-modal__form">
+        <form id="contactForm" novalidate>
+            <div class="form-field">
+                <input class="standart-text" type="text" id="nameField" name="name" placeholder="Имя" required>
+            </div>
+
+            <div class="form-field">
+                <input class="standart-text" type="tel" id="phoneField" name="phone" placeholder="Телефон">
+            </div>
+
+            <div class="form-field">
+                <input class="standart-text" type="email" id="emailField" name="email" placeholder="E-mail">
+            </div>
+
+            <div class="form-field">
+                <textarea class="standart-text" id="commentField" name="comment" placeholder="Комментарий"></textarea>
+            </div>
+
+            <div class="file-upload-area" class="standart-text" id="fileUploadArea">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="1.5" y="1.5" width="17" height="17" rx="1" stroke="#b8b0a4" stroke-width="1"/>
+                <path d="M5.5 13.5L9.5 8.5L12 11L15 6.5" stroke="#b8b0a4" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="7" cy="6.5" r="1.5" stroke="#b8b0a4" stroke-width="1"/>
+                </svg>
+                <span class="standart-text">Прикрепить примеры</span>
+                <input type="file" id="fileInput" name="files" multiple accept="image/*,.pdf">
+            </div>
+
+            <div class="uploaded-files" id="uploadedFiles"></div>
+
+            <div class="agreement" >
+                Нажимая кнопку "Отправить", я принимаю условия <a href="#" onclick="event.preventDefault()">пользовательского соглашения</a> и даю согласие на обработку моих персональных данных.
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">ОТПРАВИТЬ ЗАЯВКУ</button>
+        </form>
+    </div>
+</div>
+
+<script src="{% static 'web/js/fileUpload.js' %}"></script>
